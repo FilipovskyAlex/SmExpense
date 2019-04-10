@@ -1,2 +1,104 @@
 // Variables
 @import 'variables';
+// Header nav
+nav.navbar-style {
+    font-weight: bolder;
+    font-size: 17px;
+    background-color: $red;
+
+    a {
+        padding-left: 3rem;
+    }
+
+    div {
+        ul.navbar-nav {
+            li.nav-item {
+                a.nav-link {
+                    color: #4b4b4b;
+                }
+                a.nav-link:hover {
+                    color: $pink;
+                }
+            }
+        }
+    }
+
+    div {
+        form {
+            button.button-search-style {
+                outline: none;
+                border: none;
+                border-radius: 0.4rem;
+                background-color: $pink;
+            }
+            button.button-search-style:hover {
+                background-color: #f68fad;
+            }
+        }
+    }
+}
+
+div.nav-item.dropdown {
+    a.nav-link {
+        color: $pink;
+
+        i:hover {
+            color: #f68fad;
+        }
+    }
+    a.nav-link:hover {
+        color: #f68fad;
+    }
+
+    div.dropdown-menu {
+        position: absolute;
+        left: -4rem;
+
+        a.dropdown-item {
+            padding-right: 0;
+            padding-left: 0.5rem;
+        }
+    }
+}
+
+// Footer
+div.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+
+    .row {
+        div.col-sm-12 {
+            text-align: center;
+
+            footer.footer {
+                background-color: $red;
+                font-weight: normal;
+                font-size: 14px;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+
+                ul.footer-list {
+                    list-style: none;
+                    padding-left: 0;
+                    margin-bottom: 0;
+
+                    li {
+                        display: inline-block;
+                        padding: 15px 80px;
+                        letter-spacing: 0.1em;
+
+                        span {
+                            color: $pink;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
