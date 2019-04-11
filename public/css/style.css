@@ -147,3 +147,56 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   color: #0f003d;
 }
 
+.register-card {
+  padding-top: 15px;
+}
+
+.register-card .card {
+  border: none;
+}
+
+.register-card .card .card-header {
+  background-color: #ffffff;
+  font-size: 20px;
+  border: none;
+  color: #f62e75;
+  padding-top: 15px;
+  padding-bottom: 0;
+}
+
+.register-card .card .card-body form .form-group label {
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.register-card .card .card-body form .form-group div input,
+.register-card .card .card-body form .form-group div select {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+}
+
+.register-card .card .card-body form .form-group div input#logo {
+  height: 45px;
+  padding-bottom: 10px;
+}
+
+.register-card .card .card-body form .form-group div button.register-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.register-card .card .card-body form .form-group div button.register-btn:hover {
+  background-color: #f68fad;
+}
+
+.register-card .card .card-body form .form-group div a.btn.btn-link {
+  text-decoration: none;
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.register-card .card .card-body form .form-group div a.btn.btn-link:hover {
+  color: #0f003d;
+}
+
