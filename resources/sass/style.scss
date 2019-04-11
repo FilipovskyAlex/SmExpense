@@ -231,3 +231,125 @@ div.container-fluid {
         }
     }
 }
+
+// Email verify
+
+.email-verify {
+    position: relative;
+    top: 50px;
+
+    .card {
+        border: none;
+
+        .card-header {
+            background-color: $white;
+            font-size: 20px;
+            border: none;
+            color: #f62e75;
+            padding-top: 15px;
+            padding-bottom: 0;
+        }
+
+        .card-body {
+            form {
+                .form-group {
+                    label {
+                        color: #f62e75;
+                        font-size: 16px;
+                    }
+
+                    div {
+                        input, select {
+                            border: none;
+                            outline: none;
+                            border: 0.5px solid #f62e75;
+                        }
+
+                        input#logo {
+                            height: 45px;
+                            padding-bottom: 10px;
+                        }
+
+                        button.email-verify-btn {
+                            background-color: $pink;
+                            color: $white;
+                        }
+                        button.email-verify-btn:hover {
+                            background-color: #f68fad;
+                        }
+
+                        a.btn.btn-link {
+                            text-decoration: none;
+                            color: #f62e75;
+                            font-size: 16px;
+                        }
+                        a.btn.btn-link:hover {
+                            color: #0f003d;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Reset verify page
+
+.reset-verify {
+    position: relative;
+    top: 50px;
+
+    .card {
+        border: none;
+
+        .card-header {
+            background-color: $white;
+            font-size: 20px;
+            border: none;
+            color: #f62e75;
+            padding-top: 15px;
+            padding-bottom: 0;
+        }
+
+        .card-body {
+            form {
+                .form-group {
+                    label {
+                        color: #f62e75;
+                        font-size: 16px;
+                    }
+
+                    div {
+                        input, select {
+                            border: none;
+                            outline: none;
+                            border: 0.5px solid #f62e75;
+                        }
+
+                        input#logo {
+                            height: 45px;
+                            padding-bottom: 10px;
+                        }
+
+                        button.reset-verify-btn {
+                            background-color: $pink;
+                            color: $white;
+                        }
+                        button.reset-verify-btn:hover {
+                            background-color: #f68fad;
+                        }
+
+                        a.btn.btn-link {
+                            text-decoration: none;
+                            color: #f62e75;
+                            font-size: 16px;
+                        }
+                        a.btn.btn-link:hover {
+                            color: #0f003d;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

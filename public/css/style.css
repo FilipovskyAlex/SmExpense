@@ -200,3 +200,111 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   color: #0f003d;
 }
 
+.email-verify {
+  position: relative;
+  top: 50px;
+}
+
+.email-verify .card {
+  border: none;
+}
+
+.email-verify .card .card-header {
+  background-color: #ffffff;
+  font-size: 20px;
+  border: none;
+  color: #f62e75;
+  padding-top: 15px;
+  padding-bottom: 0;
+}
+
+.email-verify .card .card-body form .form-group label {
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.email-verify .card .card-body form .form-group div input,
+.email-verify .card .card-body form .form-group div select {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+}
+
+.email-verify .card .card-body form .form-group div input#logo {
+  height: 45px;
+  padding-bottom: 10px;
+}
+
+.email-verify .card .card-body form .form-group div button.email-verify-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.email-verify .card .card-body form .form-group div button.email-verify-btn:hover {
+  background-color: #f68fad;
+}
+
+.email-verify .card .card-body form .form-group div a.btn.btn-link {
+  text-decoration: none;
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.email-verify .card .card-body form .form-group div a.btn.btn-link:hover {
+  color: #0f003d;
+}
+
+.reset-verify {
+  position: relative;
+  top: 50px;
+}
+
+.reset-verify .card {
+  border: none;
+}
+
+.reset-verify .card .card-header {
+  background-color: #ffffff;
+  font-size: 20px;
+  border: none;
+  color: #f62e75;
+  padding-top: 15px;
+  padding-bottom: 0;
+}
+
+.reset-verify .card .card-body form .form-group label {
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.reset-verify .card .card-body form .form-group div input,
+.reset-verify .card .card-body form .form-group div select {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+}
+
+.reset-verify .card .card-body form .form-group div input#logo {
+  height: 45px;
+  padding-bottom: 10px;
+}
+
+.reset-verify .card .card-body form .form-group div button.reset-verify-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.reset-verify .card .card-body form .form-group div button.reset-verify-btn:hover {
+  background-color: #f68fad;
+}
+
+.reset-verify .card .card-body form .form-group div a.btn.btn-link {
+  text-decoration: none;
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.reset-verify .card .card-body form .form-group div a.btn.btn-link:hover {
+  color: #0f003d;
+}
+
