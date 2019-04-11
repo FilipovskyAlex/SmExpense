@@ -102,3 +102,72 @@ div.container-fluid {
         }
     }
 }
+
+// Auth
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+// Login
+
+.login-card {
+    padding-top: 100px;
+    border: none;
+    border: 1px solid $red;
+    border-radius: 15px;
+
+    .card-header {
+        background-color: $white;
+        font-size: 20px;
+        border: none;
+        color: #f62e75;
+        padding-top: 15px;
+        padding-bottom: 0;
+    }
+
+    .card{
+        border: none;
+        border-radius: 10px;
+
+        .card-body {
+            form {
+                .form-group {
+                    label {
+                        color: #f62e75;
+                        font-size: 16px;
+                    }
+
+                    div {
+                        input {
+                            border: none;
+                            outline: none;
+                            border: 0.5px solid #f62e75;
+                        }
+
+                        button.login-btn {
+                            background-color: $pink;
+                            color: $white;
+                        }
+                        button.login-btn:hover {
+                            background-color: #f68fad;
+                        }
+                        
+                        a.btn.btn-link {
+                            text-decoration: none;
+                            color: #f62e75;
+                            font-size: 16px;
+                        }
+                        a.btn.btn-link:hover {
+                            color: #0f003d;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

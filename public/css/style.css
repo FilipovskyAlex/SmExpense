@@ -88,3 +88,62 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   color: #f62e75;
 }
 
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: 0;
+  width: 100%;
+}
+
+.login-card {
+  padding-top: 100px;
+  border: none;
+  border: 1px solid #ffe6e3;
+  border-radius: 15px;
+}
+
+.login-card .card-header {
+  background-color: #ffffff;
+  font-size: 20px;
+  border: none;
+  color: #f62e75;
+  padding-top: 15px;
+  padding-bottom: 0;
+}
+
+.login-card .card {
+  border: none;
+  border-radius: 10px;
+}
+
+.login-card .card .card-body form .form-group label {
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.login-card .card .card-body form .form-group div input {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+}
+
+.login-card .card .card-body form .form-group div button.login-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.login-card .card .card-body form .form-group div button.login-btn:hover {
+  background-color: #f68fad;
+}
+
+.login-card .card .card-body form .form-group div a.btn.btn-link {
+  text-decoration: none;
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.login-card .card .card-body form .form-group div a.btn.btn-link:hover {
+  color: #0f003d;
+}
+
