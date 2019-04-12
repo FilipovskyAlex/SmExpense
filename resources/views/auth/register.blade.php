@@ -181,7 +181,7 @@
                         </div>
                     </div>
 
-                    <p align="center" style="margin-bottom: 0; padding: 20px 0 0 40px">Already have an account?<a href="{{ route('register') }}" style="padding-left: 10px; color: #f62e75; text-decoration: none;">Sign in</a></p>
+                    <p align="center" style="margin-bottom: 0; padding: 20px 0 0 40px">Already have an account?<a href="{{ route('login') }}" style="padding-left: 10px; color: #f62e75; text-decoration: none;">Sign in</a></p>
                 </form>
             </div>
         </div>
