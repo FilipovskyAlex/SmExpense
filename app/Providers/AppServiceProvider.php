@@ -27,5 +27,7 @@ class AppServiceProvider extends ServiceProvider
         // Xammp server using mysql 5.0.12-dev so 1071 (Specified key was too long) problem
         // is still there, default str length can fix it
         Schema::defaultStringLength(191);
+
+        Schema::enableForeignKeyConstraints();
     }
 }
