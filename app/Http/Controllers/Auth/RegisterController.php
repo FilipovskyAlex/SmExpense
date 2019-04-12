@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\CountryZone;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+/**
+ * Class RegisterController
+ * @package App\Http\Controllers\Auth
+ */
 class RegisterController extends Controller
 {
     /*
@@ -31,13 +36,19 @@ class RegisterController extends Controller
     protected $redirectTo = '/home';
 
     /**
+     * @var CountryZone|null
+     */
+    protected $countryZone = null;
+
+    /**
      * Create a new controller instance.
-     *
+     * Create an instance of CountryZone model
      * @return void
      */
     public function __construct()
     {
         $this->middleware('guest');
+        $this->countryZone = new CountryZone();
     }
 
     /**
@@ -82,5 +93,16 @@ class RegisterController extends Controller
             'post_code' => $data['post_code'],
             'logo' => $data['logo'],
         ]);
+    }
+
+    /**
+     * Get a list of zones and display the data
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getZones()
+    {
+        $zonesList['zones'] = $this->countryZone->zones();
+
+        return view('auth.zones', $zonesList);
     }
 }

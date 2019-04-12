@@ -78,7 +78,7 @@
                         <label for="country" class="col-sm-4 col-form-label text-md-right">{{ __('Country') }}</label>
 
                         <div class="col-sm-6">
-                            <select id="country" class="form-control" name="country" required>
+                            <select id="country" class="form-control" name="country" required onchange="getZones($(this).val())">
                                 <option value="">Choose country</option>
                                 {{-- Fetch a list of countries from database --}}
                                 @php
@@ -104,10 +104,9 @@
                         <label for="state" class="col-sm-4 col-form-label text-md-right">{{ __('State') }}</label>
 
                         <div class="col-sm-6">
+                            <img alt="loader" src="{{ asset('img/Spinner-1s-200px.gif') }}" id="loader" style="width: 36px; height: 36px; position: absolute; right: -20px; display: none;"/>
                             <select id="state" class="form-control" name="state" required>
-                                <option>sfd</option>
-                                <option>dsd</option>
-                                <option>sdsd</option>
+                            {{-- There will display a list of zones according to country id from auth.zones file --}}
                             </select>
 
                             @if ($errors->has('state'))
@@ -188,4 +187,18 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+        function getZones(id) {
+            $('#loader').show();
+
+            // Make post request to fetch and display a list of zones according to the certain country
+            $.post("/auth/getZones", {id: id, _token: "{{ csrf_token() }}"}, function (data) {
+                $('#state').html(data);
+                $('#loader').hide();
+            });
+        }
+    </script>
 @endsection

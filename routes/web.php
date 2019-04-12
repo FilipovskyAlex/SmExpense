@@ -19,6 +19,8 @@ Route::get('/auth', function () {
     return view('layouts.auth');
 });
 
+Route::post('auth/getZones', 'Auth\RegisterController@getZones');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
