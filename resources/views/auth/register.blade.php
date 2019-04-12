@@ -61,13 +61,35 @@
                     </div>
 
                     <div class="form-group row">
+                        <label for="phone" class="col-sm-4 col-form-label text-md-right">{{ __('Phone') }}</label>
+
+                        <div class="col-sm-6">
+                            <input id="phone" type="text" class="form-control" name="phone" required>
+
+                            @if ($errors->has('phone'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('phone') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="country" class="col-sm-4 col-form-label text-md-right">{{ __('Country') }}</label>
 
                         <div class="col-sm-6">
                             <select id="country" class="form-control" name="country" required>
-                                <option>sfd</option>
-                                <option>dsd</option>
-                                <option>sdsd</option>
+                                <option value="">Choose country</option>
+                                {{-- Fetch a list of countries from database --}}
+                                @php
+                                    use Illuminate\Support\Facades\DB;
+                                    $countries = DB::table('countries')->orderBy('id')->get();
+                                @endphp
+                                @if(isset($countries))
+                                    @foreach ($countries as $country)
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                    @endforeach
+                                @endif
                             </select>
 
                             @if ($errors->has('country'))
