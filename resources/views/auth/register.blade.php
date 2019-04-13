@@ -14,7 +14,7 @@
                         <label for="name" class="col-sm-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                         <div class="col-sm-6">
-                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" autofocus>
 
                             @if ($errors->has('name'))
                                 <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                         <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                         <div class="col-sm-6">
-                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
 
                             @if ($errors->has('email'))
                                 <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                         <label for="password" class="col-sm-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                         <div class="col-sm-6">
-                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
 
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                         <label for="password-confirm" class="col-sm-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                         <div class="col-sm-6">
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                         </div>
                     </div>
 
@@ -64,7 +64,7 @@
                         <label for="phone" class="col-sm-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                         <div class="col-sm-6">
-                            <input id="phone" type="text" class="form-control" name="phone" required>
+                            <input id="phone" type="text" class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}">
 
                             @if ($errors->has('phone'))
                                 <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                         <label for="country" class="col-sm-4 col-form-label text-md-right">{{ __('Country') }}</label>
 
                         <div class="col-sm-6">
-                            <select id="country" class="form-control" name="country" required onchange="getZones($(this).val())">
+                            <select id="country" class="form-control {{ $errors->has('country') ? ' is-invalid' : '' }}" name="country" onchange="getZones($(this).val())">
                                 <option value="">Choose country</option>
                                 {{-- Fetch a list of countries from database --}}
                                 @php
@@ -105,7 +105,7 @@
 
                         <div class="col-sm-6">
                             <img alt="loader" src="{{ asset('img/Spinner-1s-200px.gif') }}" id="loader" style="width: 36px; height: 36px; position: absolute; right: -20px; display: none;"/>
-                            <select id="state" class="form-control" name="state" required>
+                            <select id="state" class="form-control {{ $errors->has('state') ? ' is-invalid' : '' }}" name="state">
                             {{-- There will display a list of zones according to country id from auth.zones file --}}
                             </select>
 
@@ -121,7 +121,7 @@
                         <label for="city" class="col-sm-4 col-form-label text-md-right">{{ __('City') }}</label>
 
                         <div class="col-sm-6">
-                            <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required autofocus>
+                            <input id="city" type="text" class="form-control {{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" autofocus>
 
                             @if ($errors->has('city'))
                                 <span class="invalid-feedback" role="alert">
@@ -135,7 +135,7 @@
                         <label for="address" class="col-sm-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                         <div class="col-sm-6">
-                            <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
+                            <input id="address" type="text" class="form-control {{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" autofocus>
 
                             @if ($errors->has('address'))
                                 <span class="invalid-feedback" role="alert">
@@ -149,7 +149,7 @@
                         <label for="post_code" class="col-sm-4 col-form-label text-md-right">{{ __('Post code') }}</label>
 
                         <div class="col-sm-6">
-                            <input id="post_code" type="text" class="form-control" name="post_code" value="{{ old('post_code') }}" required>
+                            <input id="post_code" type="text" class="form-control {{ $errors->has('post_code') ? ' is-invalid' : '' }}" name="post_code" value="{{ old('post_code') }}">
 
                             @if ($errors->has('post_code'))
                                 <span class="invalid-feedback" role="alert">
@@ -163,7 +163,7 @@
                         <label for="logo" class="col-sm-4 col-form-label text-md-right">{{ __('Logo') }}</label>
 
                         <div class="col-sm-6">
-                            <input id="logo" type="file" class="form-control" name="logo" value="{{ old('logo') }}" required>
+                            <input id="logo" type="file" class="form-control {{ $errors->has('logo') ? ' is-invalid' : '' }}" name="logo" value="{{ old('logo') }}">
 
                             @if ($errors->has('logo'))
                                 <span class="invalid-feedback" role="alert">
