@@ -49,6 +49,10 @@ div.nav-item.dropdown div.dropdown-menu a.dropdown-item {
   padding-left: 0.5rem;
 }
 
+div.nav-item.dropdown div.dropdown-menu a.dropdown-item:hover {
+  background-color: #ffe6e3;
+}
+
 div.container-fluid {
   padding-left: 0;
   padding-right: 0;

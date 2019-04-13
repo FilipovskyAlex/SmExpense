@@ -1,6 +1,7 @@
 // Variables
 @import 'variables';
 // Header nav
+
 nav.navbar-style {
     font-weight: bolder;
     font-size: 17px;
@@ -57,6 +58,10 @@ div.nav-item.dropdown {
         a.dropdown-item {
             padding-right: 0;
             padding-left: 0.5rem;
+        }
+
+        a.dropdown-item:hover {
+            background-color: $red;
         }
     }
 }

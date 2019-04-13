@@ -69,7 +69,6 @@ class RegisterController extends Controller
             'city' => ['required', 'string'],
             'address' => ['required'],
             'post_code' => ['required', 'string'],
-//            'logo' => ['required', 'string'],
         ]);
     }
 
@@ -91,7 +90,7 @@ class RegisterController extends Controller
             'city' => $data['city'],
             'address' => $data['address'],
             'post_code' => $data['post_code'],
-//            'logo' => $data['logo'],
+            'logo' => $data['logo'],
         ]);
     }
 
