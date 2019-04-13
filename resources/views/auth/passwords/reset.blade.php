@@ -4,7 +4,7 @@
 <div class="row justify-content-center">
     <div class="col-sm-6 reset-verify">
         <div class="card">
-            <div class="card-header">{{ __('Reset Password') }}</div>
+            <div class="card-header" align="center">{{ __('Reset Password') }}</div>
 
             <div class="card-body">
                 <form method="POST" action="{{ route('password.update') }}">
