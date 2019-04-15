@@ -17,4 +17,21 @@ class CompanyController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function index()
+    {
+
+    }
+
+    public function create()
+    {
+        $data['companyTitle'] = trans('app.companies-create');
+
+        return view('companies.create', $data);
+    }
+
+    public function store()
+    {
+
+    }
 }

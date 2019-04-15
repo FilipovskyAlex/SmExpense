@@ -32,3 +32,15 @@ Route::post('auth/getZones', 'Auth\RegisterController@getZones');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+Companies
+*/
+
+Route::prefix('companies')->group(function () {
+
+    Route::get('/', 'CompanyController@index')->name('company.index');
+    Route::get('/create', 'CompanyController@create')->name('company.create');
+    Route::post('/store', 'CompanyController@store')->name('company.store');
+
+});
