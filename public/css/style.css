@@ -100,6 +100,16 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   width: 100%;
 }
 
+.errors-and-successes {
+  padding-top: 10px;
+}
+
+.errors-and-successes .alert.alert-success {
+  background-color: #ffe6e3;
+  border: none;
+  outline: none;
+}
+
 .login-card {
   padding-top: 100px;
   border: none;

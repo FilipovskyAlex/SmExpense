@@ -118,6 +118,18 @@ div.container-fluid {
     width: 100%;
 }
 
+// Errors and successes
+
+.errors-and-successes {
+    padding-top: 10px;
+
+    .alert.alert-success {
+        background-color: $red;
+        border: none;
+        outline: none;
+    }
+}
+
 // Login
 
 .login-card {

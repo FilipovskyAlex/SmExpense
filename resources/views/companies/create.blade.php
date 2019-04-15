@@ -23,9 +23,11 @@
                         <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" autofocus>
 
                         @if ($errors->has('name'))
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
+                            @foreach ($errors->get('name') as $message)
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @endforeach
                         @endif
                     </div>
                 </div>
