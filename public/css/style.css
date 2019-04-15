@@ -365,3 +365,57 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   background-color: #f68fad;
 }
 
+.row.index-company {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.row.index-company .col-sm-9 {
+  padding: 10px 0 20px 60px;
+}
+
+.row.index-company .col-sm-9 h2 {
+  text-align: left;
+  color: #f62e75;
+  letter-spacing: 0.5px;
+}
+
+.row.index-company .col-sm-3 {
+  padding-top: 22px;
+  padding-left: 50px;
+}
+
+.row.index-company .col-sm-3 a {
+  text-decoration: none;
+}
+
+.row.index-company .col-sm-3 a button.add-new-comp {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.row.index-company .col-sm-3 a button.add-new-comp:hover {
+  background-color: #f68fad;
+}
+
+.row.add-new-comp-form form .form-group label {
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.row.add-new-comp-form form .form-group div input {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+}
+
+.row.add-new-comp-form form .form-group div button.add-comp-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.row.add-new-comp-form form .form-group div button.add-comp-btn:hover {
+  background-color: #f68fad;
+}
+

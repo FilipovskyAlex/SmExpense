@@ -419,3 +419,67 @@ div.container-fluid {
         }
     }
 }
+
+// Companies index
+
+.row.index-company {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    .col-sm-9 {
+        padding: 10px 0 20px 60px ;
+
+        h2 {
+            text-align: left;
+            color: $pink;
+            letter-spacing: 0.5px;
+        }
+    }
+    .col-sm-3 {
+        padding-top: 22px;
+        padding-left: 50px;
+
+        a {
+            text-decoration: none;
+
+            button.add-new-comp {
+                background-color: $pink;
+                color: $white;
+            }
+
+            button.add-new-comp:hover {
+                background-color: #f68fad;
+            }
+        }
+    }
+}
+
+.row.add-new-comp-form {
+    form {
+        .form-group {
+            label {
+                color: #f62e75;
+                font-size: 16px;
+            }
+
+            div {
+                input {
+                    border: none;
+                    outline: none;
+                    border: 0.5px solid #f62e75;
+                }
+
+                button.add-comp-btn {
+                    background-color: $pink;
+                    color: $white;
+                }
+                button.add-comp-btn:hover {
+                    background-color: #f68fad;
+                }
+            }
+        }
+    }
+}
+
+

@@ -6,7 +6,7 @@
             <h1>{{ $companyTitle }}</h1>
         </div>
         <div class="col-sm-2">
-            <a href="#">
+            <a href="{{ route('company.index') }}">
                 <button class="btn add-new-comp">Companies<i style="padding-left: 10px;" class="fas fa-arrow-left"></i></button>
             </a>
         </div>
