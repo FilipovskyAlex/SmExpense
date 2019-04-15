@@ -5,6 +5,10 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class StoreCompany
+ * @package App\Http\Requests
+ */
 class StoreCompany extends FormRequest
 {
     /**
@@ -29,6 +33,9 @@ class StoreCompany extends FormRequest
         ];
     }
 
+    /**
+     * @return array
+     */
     public function messages()
     {
         return [

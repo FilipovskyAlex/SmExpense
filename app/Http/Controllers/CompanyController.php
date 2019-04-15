@@ -22,6 +22,7 @@ class CompanyController extends Controller
     }
 
     /**
+     * Show a list of current user companies
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
@@ -30,29 +31,29 @@ class CompanyController extends Controller
     }
 
     /**
+     * Create new company
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
+        // add H1 header
         $data['companyTitle'] = trans('app.companies-create');
 
         return view('companies.create', $data);
     }
 
     /**
+     * Store new company
      * @param StoreCompany $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreCompany $request)
     {
-        $validated = $request->validated();
+        // Validate request company data
+        $company = new Company($request->all());
 
-        $company = new Company();
-
-        $company->name = $validated['name'];
-        $company->user_id = Auth::user()->id;
-
-        $company->save();
+        // Store company to a database dynamically with current user_id and creating company form data
+        Auth::user()->companies()->save($company);
 
         return redirect()->back()->with('message', 'New company is created');
     }

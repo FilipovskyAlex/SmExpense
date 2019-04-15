@@ -55,4 +55,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Add One To Many relation between companies and users tables
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function companies()
+    {
+        return $this->hasMany('App\Company');
+    }
 }

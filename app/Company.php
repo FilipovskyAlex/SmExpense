@@ -19,4 +19,13 @@ class Company extends Model
      * @var array
      */
     protected $fillable = ['user_id', 'name'];
+
+    /**
+     * Add belongs to relation between users and companies tables
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
