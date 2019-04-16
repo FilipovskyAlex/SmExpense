@@ -429,3 +429,29 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   background-color: #f68fad;
 }
 
+.row.company-list .col-sm-7 ul {
+  list-style: none;
+  width: 30rem;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.row.company-list .col-sm-7 ul li {
+  display: block;
+  width: 10rem;
+  margin: 0 auto;
+  height: auto;
+  padding: 5px 10px;
+}
+
+.row.company-list .col-sm-7 ul li a button.btn.comp-list-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  width: 100%;
+}
+
+.row.company-list .col-sm-7 ul li a button.btn.comp-list-btn:hover {
+  color: #2d2d2d;
+}
+

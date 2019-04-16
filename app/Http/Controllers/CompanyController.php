@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Http\Requests\StoreCompany;
+use App\Providers\CommonProvider;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +21,10 @@ class CompanyController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+        $this->companies = new Company();
+        $this->users = new User();
+        $this->colors = CommonProvider::colors();
     }
 
     /**
@@ -27,7 +33,12 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('companies.index');
+        $data['title'] = trans('app.companies-title');
+        $data['colors'] = $this->colors;
+        $data['users'] = $this->users;
+        $data['companies'] = $this->companies->get();
+
+        return view('companies.index', $data);
     }
 
     /**

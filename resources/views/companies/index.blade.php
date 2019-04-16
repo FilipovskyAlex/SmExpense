@@ -11,4 +11,21 @@
             </a>
         </div>
     </div>
+    <div class="row company-list justify-content-center">
+        <div class="col-sm-7">
+            <h5 align="center" style="color: #f62e75;">A list of companies</h5>
+
+            @if(isset($companies))
+                <ul>
+                    @foreach($companies as $company)
+                        <li>
+                            <a href="#">
+                                <button class="btn comp-list-btn">{{ $company->name }}</button>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+    </div>
 @endsection
