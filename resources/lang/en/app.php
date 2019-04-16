@@ -2,5 +2,6 @@
 
 return [
     'companies-create' => 'Add new company',
-    'companies-title' => 'Company'
+    'companies-title' => 'Company',
+    'title' => 'SmartExpense',
 ];

@@ -1,5 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-style">
-    <a class="navbar-brand" href="#">SmartMoney</a>
+    <a class="navbar-brand" href="{{ route('home') }}">
+        @if(\Illuminate\Support\Facades\Auth::user()->company_id !== null)
+            {{ \Illuminate\Support\Facades\Auth::user()->company_name }}
+            @else
+            {{ trans('app.title') }}
+        @endif
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

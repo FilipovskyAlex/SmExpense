@@ -42,5 +42,6 @@ Route::prefix('companies')->group(function () {
     Route::get('/', 'CompanyController@index')->name('company.index');
     Route::get('/create', 'CompanyController@create')->name('company.create');
     Route::post('/store', 'CompanyController@store')->name('company.store');
+    Route::get('/active', 'CompanyController@active')->name('company.active');
 
 });

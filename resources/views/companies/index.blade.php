@@ -16,13 +16,26 @@
             <h5 align="center" style="color: #f62e75;">A list of companies</h5>
 
             @if(isset($companies))
+                @php
+                    $i = 0;
+                @endphp
                 <ul>
                     @foreach($companies as $company)
                         <li>
-                            <a href="#">
-                                <button class="btn comp-list-btn">{{ $company->name }}</button>
+                            {{-- Encode the url in case of misrequesting by bad user(he changes the id in the query string) --}}
+                            <a href="{{ route('company.active', 'company='.urlencode(base64_encode($company->id))) }}">
+                                {{-- Add style for active company.
+                                If company is selected by user,
+                                it has border with white background-color --}}
+                                @php
+                                    $style = \Illuminate\Support\Facades\Auth::user()->company_id === $company->id
+                                    ? "border: 2px solid $colors[$i]; background-color: white; color: black"
+                                    : "background-color: $colors[$i]";
+                                @endphp
+                                <button style="{{ $style }}" class="btn comp-list-btn">{{ $company->name }}</button>
                             </a>
                         </li>
+                        @php $i++ @endphp
                     @endforeach
                 </ul>
             @endif

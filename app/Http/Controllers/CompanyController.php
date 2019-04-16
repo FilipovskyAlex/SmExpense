@@ -8,6 +8,7 @@ use App\Providers\CommonProvider;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Class CompanyController
@@ -67,5 +68,23 @@ class CompanyController extends Controller
         Auth::user()->companies()->save($company);
 
         return redirect()->back()->with('message', 'New company is created');
+    }
+
+    public function active()
+    {
+        $user_id = Auth::user()->id;
+
+        $company_id = Input::get('company');
+        $company_id = base64_decode(urldecode($company_id));
+
+        $company = $this->companies->find($company_id);
+        $user = $this->users->find($user_id);
+
+        $user->company_id = $company->id;
+        $user->company_name = $company->name;
+
+        $user->save();
+
+        return redirect()->route('company.index')->with('message', $company->name.' selected');
     }
 }
