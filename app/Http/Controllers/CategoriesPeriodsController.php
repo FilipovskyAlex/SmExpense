@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 /**
- * Class CategoryPeriodsController
+ * Class CategoriesPeriodsController
  * @package App\Http\Controllers
  */
-class CategoryPeriodsController extends Controller
+class CategoriesPeriodsController extends Controller
 {
     /**
-     * CategoryPeriodsController constructor.
+     * CategoriesPeriodsController constructor.
      */
     public function __construct()
     {
