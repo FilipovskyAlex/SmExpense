@@ -16,7 +16,7 @@
                 <a class="nav-link" href="{{ route('company.index') }}">Change company <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Depart. & periods</a>
+                <a class="nav-link" href="{{ route('categories_periods.index') }}">Depart. & periods</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Budgets</a>

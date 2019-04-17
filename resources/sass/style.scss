@@ -526,3 +526,224 @@ div.container-fluid {
         }
     }
 }
+
+// Category create
+
+.col-sm-6.create-category {
+    h4 {
+        text-align: left;
+        color: $pink;
+        letter-spacing: 0.5px;
+        padding: 25px 0 5px 20px;
+    }
+
+    form.create-cat-form {
+        padding-top: 15px;
+
+        input {
+
+        }
+
+        .form-group {
+            label {
+                color: #f62e75;
+                font-size: 16px;
+            }
+
+            div {
+                input {
+                    border: none;
+                    outline: none;
+                    border: 0.5px solid #f62e75;
+                }
+
+                button.add-cat-btn {
+                    background-color: $pink;
+                    color: $white;
+                }
+                button.add-cat-btn:hover {
+                    background-color: #f68fad;
+                }
+            }
+        }
+    }
+}
+
+// Period create
+
+.col-sm-6.create-period {
+    h4 {
+        text-align: left;
+        color: $pink;
+        letter-spacing: 0.5px;
+        padding: 25px 0 5px 20px;
+    }
+
+    form.create-period-form {
+        padding-top: 10px;
+
+        input {
+
+        }
+
+        .form-group {
+            label {
+                color: #f62e75;
+                font-size: 16px;
+            }
+            div.col-sm-6 {
+                div.datarange {
+                    input {
+                        border: none;
+                        outline: none;
+                        border: 0.5px solid #f62e75;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        border-radius: 5px;
+                        height: 2.3rem;
+                    }
+
+                    span {
+
+                    }
+                }
+            }
+
+            div {
+                button.add-per-btn {
+                    background-color: $pink;
+                    color: $white;
+                }
+                button.add-per-btn:hover {
+                    background-color: #f68fad;
+                }
+            }
+        }
+    }
+}
+
+// Categories list
+
+.col-sm-5.categories-table {
+    div {
+        padding: 15px 0 0 25px;
+
+        table.table {
+            thead {
+                tr {
+                    th {
+                        color: $pink;
+                        border: none;
+                        text-align: center;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        color: $pink;
+                        border-top: 0.5px solid $red;
+                        text-align: center;
+
+                        a {
+                            text-decoration: none;
+
+                            i {
+                                color: $pink;
+                            }
+
+                            i:hover {
+                                color: $red;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Periods list
+
+.col-sm-5.periods-table {
+    div {
+        padding: 15px 0 0 25px;
+
+        table.table {
+            thead {
+                tr {
+                    th {
+                        color: $pink;
+                        border: none;
+                        text-align: center;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        color: $pink;
+                        border-top: 0.5px solid $red;
+                        text-align: center;
+
+                        a {
+                            text-decoration: none;
+
+                            i {
+                                color: $pink;
+                            }
+
+                            i:hover {
+                                color: $red;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Category update
+.row.justify-content-center {
+    .col-sm-6.edit-category {
+        h4 {
+            text-align: center;
+            color: $pink;
+            letter-spacing: 0.5px;
+            padding: 25px 0 5px 0;
+        }
+
+        form.edit-cat-form {
+            padding-top: 10px;
+
+            .form-group {
+                label {
+                    color: #f62e75;
+                    font-size: 16px;
+                }
+                div.col-sm-6 {
+                    input {
+                        border: none;
+                        outline: none;
+                        border: 0.5px solid #f62e75;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        border-radius: 5px;
+                        height: 2.3rem;
+                    }
+                }
+
+                div {
+                    button.btn.edit-cat-btn {
+                        background-color: $pink;
+                        color: $white;
+                    }
+                    button.btn.edit-cat-btn:hover {
+                        background-color: #f68fad;
+                    }
+                }
+            }
+        }
+    }
+}

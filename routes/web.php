@@ -56,8 +56,8 @@ Route::prefix('categories')->group(function () {
     Route::post('/update/{id}', 'CategoryController@update')->name('category.update');
     Route::get('/delete/{id}', 'CategoryController@delete')->name('category.delete');
     Route::post('/store', 'CategoryController@store')->name('category.store');
-    Route::get('/index', 'CategoryController@index')->name('category.index');
-    Route::get('/edit/{id}', 'CategoryController@delete')->name('category.edit');
+//    Route::get('/index', 'CategoryController@index')->name('category.index');
+    Route::get('/edit/{id}', 'CategoryController@edit')->name('category.edit');
 
 });
 
@@ -71,8 +71,8 @@ Route::prefix('periods')->group(function () {
     Route::post('/update/{id}', 'PeriodController@update')->name('period.update');
     Route::get('/delete/{id}', 'PeriodController@delete')->name('period.delete');
     Route::post('/store', 'PeriodController@store')->name('period.store');
-    Route::get('/index', 'PeriodController@index')->name('period.index');
-    Route::get('/edit/{id}', 'PeriodController@delete')->name('period.edit');
+//    Route::get('/index', 'PeriodController@index')->name('period.index');
+    Route::get('/edit/{id}', 'PeriodController@edit')->name('period.edit');
 
 });
 
@@ -80,4 +80,4 @@ Route::prefix('periods')->group(function () {
 Periods & Categories
 */
 
-Route::get('/categories-periods', 'CategoriesPeriodsController')->name('categories-periods.index');
+Route::get('categories-periods', 'CategoriesPeriodsController@index')->name('categories_periods.index');
