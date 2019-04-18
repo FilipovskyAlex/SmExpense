@@ -529,7 +529,7 @@ div.container-fluid {
 
 // Category create
 
-.col-sm-6.create-category {
+.col-sm-5.create-category {
     h4 {
         text-align: left;
         color: $pink;
@@ -571,7 +571,7 @@ div.container-fluid {
 
 // Period create
 
-.col-sm-6.create-period {
+.col-sm-7.create-period {
     h4 {
         text-align: left;
         color: $pink;
@@ -624,7 +624,7 @@ div.container-fluid {
 
 // Categories list
 
-.col-sm-5.categories-table {
+.col-sm-4.categories-table {
     div {
         padding: 15px 0 0 25px;
 
@@ -740,6 +740,52 @@ div.container-fluid {
                         color: $white;
                     }
                     button.btn.edit-cat-btn:hover {
+                        background-color: #f68fad;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Period update
+.row.justify-content-center {
+    .col-sm-7.edit-period {
+        h4 {
+            text-align: center;
+            color: $pink;
+            letter-spacing: 0.5px;
+            padding: 25px 0 5px 0;
+        }
+
+        form.edit-period-form {
+            padding-top: 10px;
+
+            .form-group {
+                label {
+                    color: #f62e75;
+                    font-size: 16px;
+                }
+                div.col-sm-6 {
+                    div.datarange {
+                        input {
+                            border: none;
+                            outline: none;
+                            border: 0.5px solid #f62e75;
+                            -webkit-border-radius: 5px;
+                            -moz-border-radius: 5px;
+                            border-radius: 5px;
+                            height: 2.3rem;
+                        }
+                    }
+                }
+
+                div {
+                    button.btn.edit-per-btn {
+                        background-color: $pink;
+                        color: $white;
+                    }
+                    button.btn.edit-per-btn:hover {
                         background-color: #f68fad;
                     }
                 }

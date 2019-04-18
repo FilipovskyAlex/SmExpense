@@ -1,4 +1,4 @@
-<div class="col-sm-5 offset-1 categories-table">
+<div class="col-sm-4 offset-2 categories-table">
     <div>
         <table class="table">
             <thead>

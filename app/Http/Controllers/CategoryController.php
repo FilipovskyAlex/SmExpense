@@ -41,7 +41,7 @@ class CategoryController extends Controller
         return redirect()->route('categories_periods.index')->with('message', 'Category updated successfully');
     }
 
-    public function edit(int $id = 4)
+    public function edit(int $id)
     {
         $data['category'] = $this->category::findOrFail($id);
 

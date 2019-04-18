@@ -454,54 +454,54 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   color: #2d2d2d;
 }
 
-.col-sm-6.create-category h4 {
+.col-sm-5.create-category h4 {
   text-align: left;
   color: #f62e75;
   letter-spacing: 0.5px;
   padding: 25px 0 5px 20px;
 }
 
-.col-sm-6.create-category form.create-cat-form {
+.col-sm-5.create-category form.create-cat-form {
   padding-top: 15px;
 }
 
-.col-sm-6.create-category form.create-cat-form .form-group label {
+.col-sm-5.create-category form.create-cat-form .form-group label {
   color: #f62e75;
   font-size: 16px;
 }
 
-.col-sm-6.create-category form.create-cat-form .form-group div input {
+.col-sm-5.create-category form.create-cat-form .form-group div input {
   border: none;
   outline: none;
   border: 0.5px solid #f62e75;
 }
 
-.col-sm-6.create-category form.create-cat-form .form-group div button.add-cat-btn {
+.col-sm-5.create-category form.create-cat-form .form-group div button.add-cat-btn {
   background-color: #f62e75;
   color: #ffffff;
 }
 
-.col-sm-6.create-category form.create-cat-form .form-group div button.add-cat-btn:hover {
+.col-sm-5.create-category form.create-cat-form .form-group div button.add-cat-btn:hover {
   background-color: #f68fad;
 }
 
-.col-sm-6.create-period h4 {
+.col-sm-7.create-period h4 {
   text-align: left;
   color: #f62e75;
   letter-spacing: 0.5px;
   padding: 25px 0 5px 20px;
 }
 
-.col-sm-6.create-period form.create-period-form {
+.col-sm-7.create-period form.create-period-form {
   padding-top: 10px;
 }
 
-.col-sm-6.create-period form.create-period-form .form-group label {
+.col-sm-7.create-period form.create-period-form .form-group label {
   color: #f62e75;
   font-size: 16px;
 }
 
-.col-sm-6.create-period form.create-period-form .form-group div.col-sm-6 div.datarange input {
+.col-sm-7.create-period form.create-period-form .form-group div.col-sm-6 div.datarange input {
   border: none;
   outline: none;
   border: 0.5px solid #f62e75;
@@ -509,40 +509,40 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   height: 2.3rem;
 }
 
-.col-sm-6.create-period form.create-period-form .form-group div button.add-per-btn {
+.col-sm-7.create-period form.create-period-form .form-group div button.add-per-btn {
   background-color: #f62e75;
   color: #ffffff;
 }
 
-.col-sm-6.create-period form.create-period-form .form-group div button.add-per-btn:hover {
+.col-sm-7.create-period form.create-period-form .form-group div button.add-per-btn:hover {
   background-color: #f68fad;
 }
 
-.col-sm-5.categories-table div {
+.col-sm-4.categories-table div {
   padding: 15px 0 0 25px;
 }
 
-.col-sm-5.categories-table div table.table thead tr th {
+.col-sm-4.categories-table div table.table thead tr th {
   color: #f62e75;
   border: none;
   text-align: center;
 }
 
-.col-sm-5.categories-table div table.table tbody tr td {
+.col-sm-4.categories-table div table.table tbody tr td {
   color: #f62e75;
   border-top: 0.5px solid #ffe6e3;
   text-align: center;
 }
 
-.col-sm-5.categories-table div table.table tbody tr td a {
+.col-sm-4.categories-table div table.table tbody tr td a {
   text-decoration: none;
 }
 
-.col-sm-5.categories-table div table.table tbody tr td a i {
+.col-sm-4.categories-table div table.table tbody tr td a i {
   color: #f62e75;
 }
 
-.col-sm-5.categories-table div table.table tbody tr td a i:hover {
+.col-sm-4.categories-table div table.table tbody tr td a i:hover {
   color: #ffe6e3;
 }
 
@@ -604,6 +604,39 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
 }
 
 .row.justify-content-center .col-sm-6.edit-category form.edit-cat-form .form-group div button.btn.edit-cat-btn:hover {
+  background-color: #f68fad;
+}
+
+.row.justify-content-center .col-sm-7.edit-period h4 {
+  text-align: center;
+  color: #f62e75;
+  letter-spacing: 0.5px;
+  padding: 25px 0 5px 0;
+}
+
+.row.justify-content-center .col-sm-7.edit-period form.edit-period-form {
+  padding-top: 10px;
+}
+
+.row.justify-content-center .col-sm-7.edit-period form.edit-period-form .form-group label {
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.row.justify-content-center .col-sm-7.edit-period form.edit-period-form .form-group div.col-sm-6 div.datarange input {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+  border-radius: 5px;
+  height: 2.3rem;
+}
+
+.row.justify-content-center .col-sm-7.edit-period form.edit-period-form .form-group div button.btn.edit-per-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.row.justify-content-center .col-sm-7.edit-period form.edit-period-form .form-group div button.btn.edit-per-btn:hover {
   background-color: #f68fad;
 }
 

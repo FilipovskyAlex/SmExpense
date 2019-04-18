@@ -1,4 +1,4 @@
-<div class="col-sm-6 create-category">
+<div class="col-sm-5 create-category">
     <h4 style="padding-left: 45px;">Add Category</h4>
     <form class="create-cat-form" action="{{ route('category.store') }}" method="post" role="form">
         @csrf

@@ -28,14 +28,25 @@ class PeriodController extends Controller
 
     }
 
-    public function update(int $id)
+    public function update(PeriodStore $request, int $id)
     {
+        $period = $this->period::findOrFail($id);
 
+        $validated = $request->validated();
+
+        $period->from = $validated['from'];
+        $period->to = $validated['to'];
+
+        $period->save();
+
+        return redirect()->route('categories_periods.index')->with('message', 'Period updated successfully');
     }
 
     public function edit(int $id)
     {
+        $data['period'] = $this->period::findOrFail($id);
 
+        return view('periods.edit', $data);
     }
 
     /**

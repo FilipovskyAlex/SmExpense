@@ -1,4 +1,4 @@
-<div class="col-sm-6 create-period">
+<div class="col-sm-7 create-period">
     <h4 style="padding-left: 45px;">Add Period</h4>
 
     @if ($errors->has('from'))
@@ -22,9 +22,9 @@
 
             <div class="col-sm-6">
                 <div class="datarange">
-                    <input id="from" type="text" name="from" size="15px" autofocus>
+                    <input id="from" type="date" name="from" size="15px" autofocus>
                     <span style="padding: 0 5px;">To</span>
-                    <input id="to" type="text" name="to" size="15px" autofocus>
+                    <input id="to" type="date" name="to" size="15px" autofocus>
                 </div>
             </div>
 

@@ -8,6 +8,7 @@
     <link rel="icon" href="/img/favicon-16x16.png" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
