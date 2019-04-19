@@ -38,9 +38,7 @@ class CompanyController extends Controller
         $data['colors'] = $this->colors;
         $data['users'] = $this->users;
         // Fetch only current user companies
-        $data['companies'] = $this->companies
-            ->where('user_id', Auth::user()->id)
-            ->get();
+        $data['companies'] = $this->companies->getCompaniesByUser();
 
         return view('companies.index', $data);
     }
