@@ -37,7 +37,10 @@ class CompanyController extends Controller
         $data['title'] = trans('app.companies-title');
         $data['colors'] = $this->colors;
         $data['users'] = $this->users;
-        $data['companies'] = $this->companies->get();
+        // Fetch only current user companies
+        $data['companies'] = $this->companies
+            ->where('user_id', Auth::user()->id)
+            ->get();
 
         return view('companies.index', $data);
     }
@@ -70,6 +73,10 @@ class CompanyController extends Controller
         return redirect()->back()->with('message', 'New company is created');
     }
 
+    /**
+     * Show current active company and save current compnay_id and company_name in users table
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function active()
     {
         $user_id = Auth::user()->id;
