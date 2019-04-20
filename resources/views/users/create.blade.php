@@ -139,10 +139,12 @@
 
                     <div class="col-sm-6" style="padding-top: 10px;">
                         @if(isset($companies))
+{{--                            Get companies list --}}
                             <ul style="list-style: none; padding-left: 0;">
                                 @foreach($companies as $company)
                                     <li><label for=""><input name="access[{{ $company->id }}]" type="checkbox" value="{{ $company->id }}"> {{ $company->name }}</label></li>
                                     @if(count(\App\Category::getCategoriesByUser($company->id)))
+{{--                                        Get categories list --}}
                                         <ul style="list-style: none" id="checkbox_{{ $company->id }}">
                                             @foreach(\App\Category::getCategoriesByUser($company->id) as $category)
                                                 <li>

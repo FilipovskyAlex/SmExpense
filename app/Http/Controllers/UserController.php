@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
  */
 class UserController extends Controller
 {
+
     /**
      * UserController constructor.
      */
@@ -25,11 +26,17 @@ class UserController extends Controller
         $this->users = new User();
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('users.index');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         $data['roles'] = $this->users->roles();
