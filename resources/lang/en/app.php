@@ -7,4 +7,7 @@ return [
 
     'categories-create' => 'Add new category',
     'categories-edit' => 'Category update',
+
+    'users-index' => 'Users',
+    'users-create' => 'Add new User',
 ];

@@ -26,7 +26,7 @@ class Category extends Model
      * @param null $company_id
      * @return array
      */
-    public function getCategoriesByUser($company_id = null)
+    public static function getCategoriesByUser($company_id = null)
     {
         $company_id = $company_id == null ? Auth::user()->company_id : $company_id;
 

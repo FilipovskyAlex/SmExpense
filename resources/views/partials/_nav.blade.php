@@ -28,7 +28,7 @@
                 <a class="nav-link" href="#">Reports</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Users <i class="fas fa-users" style="padding-left: 3px;"></i></a>
+                <a class="nav-link" href="{{ route('user.index') }}">Users <i class="fas fa-users" style="padding-left: 3px;"></i></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

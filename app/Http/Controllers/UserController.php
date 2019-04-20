@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function index()
     {
-
+        return view('users.index');
     }
 
     public function create()
@@ -39,7 +39,7 @@ class UserController extends Controller
         return view('users.create', $data);
     }
 
-    public function store()
+    public function store(Request $request)
     {
 
     }
