@@ -81,3 +81,18 @@ Periods & Categories
 */
 
 Route::get('categories-periods', 'CategoriesPeriodsController@index')->name('categories_periods.index');
+
+/*
+Users
+*/
+
+Route::prefix('users')->group(function () {
+
+    Route::get('/', 'UserController@index')->name('user.index');
+    Route::get('/create', 'UserController@create')->name('user.create');
+    Route::post('/store', 'UserController@store')->name('user.store');
+    Route::get('/edit/{id}', 'UserController@edit')->name('user.edit');
+    Route::post('/update/{id}', 'UserController@updat')->name('user.update');
+    Route::get('/delete/{id}', 'UserController@delete')->name('user.delete');
+
+});
