@@ -118,7 +118,7 @@
                     <label for="role" class="col-sm-4 col-form-label text-md-right">{{ __('Role') }}</label>
 
                     <div class="col-sm-6">
-                        <select class="form-control {{ $errors->has('role') ? ' is-invalid' : '' }}" id="role" name="role">
+                        <select class="form-control {{ $errors->has('role') ? ' is-invalid' : '' }}" id="role" name="role" onchange="accessabilities((this.value))">
                             <option value="">Choose role</option>
                             @if(isset($roles))
                                 @foreach($roles as $role)
@@ -134,7 +134,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row" id="accessabilities" style="display: none;">
                     <label for="permission" class="col-sm-4 col-form-label text-md-right">{{ __('Permissions') }}</label>
 
                     <div class="col-sm-6" style="padding-top: 10px;">
@@ -142,13 +142,13 @@
 {{--                            Get companies list --}}
                             <ul style="list-style: none; padding-left: 0;">
                                 @foreach($companies as $company)
-                                    <li><label for=""><input name="access[{{ $company->id }}]" type="checkbox" value="{{ $company->id }}"> {{ $company->name }}</label></li>
+                                    <li><label for=""><input name="access[{{ $company->id }}]" onclick="categories(this, {{ $company->id }})" type="checkbox" value="{{ $company->id }}"> {{ $company->name }}</label></li>
                                     @if(count(\App\Category::getCategoriesByUser($company->id)))
 {{--                                        Get categories list --}}
                                         <ul style="list-style: none" id="checkbox_{{ $company->id }}">
                                             @foreach(\App\Category::getCategoriesByUser($company->id) as $category)
                                                 <li>
-                                                    <label><input name="access[{{ $company->id }}][]" type="checkbox" value="{{ $category->id }}"> {{ $category->name }}</label>
+                                                    <label><input class="categories" name="access[{{ $company->id }}][]" type="checkbox" value="{{ $category->id }}"> {{ $category->name }}</label>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -181,4 +181,38 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        function categories(e, id) {
+            if(e.is("checked")) {
+
+            } else {
+                $("#checkbox_" + id).hide();
+            }
+        }
+        
+        function accessabilities(role) {
+            if(role === '') {
+                let attr = $("#accessabilities");
+                attr.hide();
+            }
+
+            if(role === '1') {
+                let attr = $("#accessabilities").attr("type", "checkbox");
+                attr.show();
+            }
+
+            if(role === '2') {
+                $(".categories").attr("type", "checkbox");
+                $("#accessabilities").show();
+            }
+
+            if(role === '3') {
+                $(".categories").attr("type", "radio");
+                $("#accessabilities").show();
+            }
+        }
+    </script>
 @endsection
