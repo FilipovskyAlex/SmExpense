@@ -705,3 +705,35 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   color: #0f003d;
 }
 
+.row.index-users-table .col-sm-8 div {
+  padding: 25px 0 25px 0;
+}
+
+.row.index-users-table .col-sm-8 div table thead {
+  border-bottom: 1px solid #f62e75;
+}
+
+.row.index-users-table .col-sm-8 div table thead tr {
+  text-align: center;
+}
+
+.row.index-users-table .col-sm-8 div table thead tr th {
+  padding-bottom: 10px;
+}
+
+.row.index-users-table .col-sm-8 div table tbody tr {
+  text-align: center;
+}
+
+.row.index-users-table .col-sm-8 div table tbody tr td {
+  padding-top: 10px;
+}
+
+.row.index-users-table .col-sm-8 div table tbody tr td i {
+  color: #f62e75;
+}
+
+.row.index-users-table .col-sm-8 div table tbody tr td i:hover {
+  color: #ffe6e3;
+}
+

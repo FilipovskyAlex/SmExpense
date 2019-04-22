@@ -35,7 +35,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $data['users'] = $this->users->getUsersById();
+
+        return view('users.index', $data);
     }
 
     /**
@@ -50,6 +52,10 @@ class UserController extends Controller
         return view('users.create', $data);
     }
 
+    /**
+     * @param UserRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(UserRequest $request)
     {
         $validated = $request->all();
@@ -68,7 +74,7 @@ class UserController extends Controller
         $this->users->post_code = $validated['post_code'];
         $this->users->status = $validated['status'];
         $this->users->role = $validated['role'];
-//dd($validated['access']);
+
         $this->users->save();
 
         if(count($validated['access']) > 0) {

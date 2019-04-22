@@ -868,3 +868,42 @@ div.container-fluid {
         }
     }
 }
+
+.row.index-users-table {
+    .col-sm-8 {
+        div {
+            padding: 25px 0 25px 0;
+
+            table {
+                thead {
+                    border-bottom: 1px solid $pink;
+
+                    tr {
+                        text-align: center;
+
+                        th {
+                            padding-bottom: 10px;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        text-align: center;
+
+                        td {
+                            padding-top: 10px;
+
+                            i {
+                                color: $pink;
+                            }
+                            i:hover {
+                                color: $red;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
