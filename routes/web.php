@@ -92,7 +92,7 @@ Route::prefix('users')->group(function () {
     Route::get('/create', 'UserController@create')->name('users.create');
     Route::post('/store', 'UserController@store')->name('users.store');
     Route::get('/edit/{id}', 'UserController@edit')->name('users.edit');
-    Route::post('/update/{id}', 'UserController@updat')->name('users.update');
+    Route::post('/update/{id}', 'UserController@update')->name('users.update');
     Route::get('/delete/{id}', 'UserController@delete')->name('users.delete');
 
 });

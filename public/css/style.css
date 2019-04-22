@@ -737,3 +737,68 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   color: #ffe6e3;
 }
 
+.row.edit-users {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.row.edit-users .col-sm-9 {
+  padding: 10px 0 20px 60px;
+}
+
+.row.edit-users .col-sm-9 h2 {
+  text-align: left;
+  color: #f62e75;
+  letter-spacing: 0.5px;
+}
+
+.row.edit-users .col-sm-3 {
+  padding-top: 22px;
+  padding-left: 50px;
+}
+
+.row.edit-users .col-sm-3 a {
+  text-decoration: none;
+}
+
+.row.edit-users .col-sm-3 a button.add-new-user {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.row.edit-users .col-sm-3 a button.add-new-user:hover {
+  background-color: #f68fad;
+}
+
+.edit-user-form .col-sm-8 form .form-group label {
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.edit-user-form .col-sm-8 form .form-group div input,
+.edit-user-form .col-sm-8 form .form-group div select {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+}
+
+.edit-user-form .col-sm-8 form .form-group div button.register-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.edit-user-form .col-sm-8 form .form-group div button.register-btn:hover {
+  background-color: #f68fad;
+}
+
+.edit-user-form .col-sm-8 form .form-group div a.btn.btn-link {
+  text-decoration: none;
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.edit-user-form .col-sm-8 form .form-group div a.btn.btn-link:hover {
+  color: #0f003d;
+}
+

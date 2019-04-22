@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Company;
+use App\Http\Requests\EditUserRequest;
 use App\Http\Requests\UserRequest;
 use App\User;
 use App\UserDetails;
@@ -108,14 +109,87 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('message', 'New user record has been inserted!');
     }
 
-    public function edit()
+    /**
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(int $id)
     {
+        $data['roles'] = $this->users->roles();
+        $data['companies'] = $this->companies->getCompaniesByUser();
+        $data['categories'] = $this->categories->getCategoriesByUser();
+        $data['user'] = $this->users->getUsersById($id);
+        $data['user'] = $data['user'][0];
 
+        return view('users.edit', $data);
     }
 
-    public function update()
+    /**
+     * @param EditUserRequest $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function update(EditUserRequest $request, int $id)
     {
+        $validated = $request->all();
 
+        $user = $this->users->find($id);
+
+        // If user has changed his email we should validate it
+        if($validated['email'] != $user->email) {
+            $this->validate($request, [
+                'email' => 'required|unique:users'
+            ]);
+        }
+
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->phone = $validated['phone'];
+        $user->company_id = $validated['company_id'];
+        $user->company_name = $validated['company_name'];
+        $user->country = $validated['country'];
+        $user->state = $validated['state'];
+        $user->city = $validated['city'];
+        $user->address = $validated['address'];
+        $user->post_code = $validated['post_code'];
+        $user->status = $validated['status'];
+        $user->role = $validated['role'];
+
+        $user->save();
+
+        // Flush all the records where id is equal to user_id
+        UserDetails::where('user_id', $id)->delete();
+
+        if(count($validated['access']) > 0) {
+            $user_id = $user->id;
+
+            foreach ($validated['access'] as $company_id => $category) {
+                if(is_array($category)) {
+                    if(isset($category)) {
+                        foreach ($category as $cat) {
+                            $userDetailData['user_id'] = $user_id;
+                            $userDetailData['company_id'] = $company_id;
+                            $userDetailData['category_id'] = $cat;
+
+                            $user_detail = new UserDetails($userDetailData);
+
+                            $user_detail->save();
+                        }
+                    }
+                } else {
+                    $userDetailData['user_id'] = $user_id;
+                    $userDetailData['company_id'] = $company_id;
+                    $userDetailData['category_id'] = null;
+
+                    $user_detail = new UserDetails($userDetailData);
+
+                    $user_detail->save();
+                }
+            }
+        }
+
+        return redirect()->route('users.index')->with('message', 'User record has been updated!');
     }
 
     public function delete()

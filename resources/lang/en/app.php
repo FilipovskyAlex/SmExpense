@@ -10,4 +10,5 @@ return [
 
     'users-index' => 'Users',
     'users-create' => 'Add new User',
+    'users-edit' => 'Edit user',
 ];

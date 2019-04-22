@@ -197,7 +197,7 @@
                 $("#checkbox_" + id).hide();
             }
         }
-        
+
         function accessabilities(role) {
             if(role === '') {
                 let attr = $("#accessabilities");
