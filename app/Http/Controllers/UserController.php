@@ -192,8 +192,12 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('message', 'User record has been updated!');
     }
 
-    public function delete()
+    public function delete(int $id)
     {
+        $user = $this->users->find($id);
 
+        $user->delete();
+
+        return redirect()->back()->with('message', 'User record has been deleted!');
     }
 }
