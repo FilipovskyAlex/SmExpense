@@ -88,11 +88,11 @@ Users
 
 Route::prefix('users')->group(function () {
 
-    Route::get('/', 'UserController@index')->name('user.index');
-    Route::get('/create', 'UserController@create')->name('user.create');
-    Route::post('/store', 'UserController@store')->name('user.store');
-    Route::get('/edit/{id}', 'UserController@edit')->name('user.edit');
-    Route::post('/update/{id}', 'UserController@updat')->name('user.update');
-    Route::get('/delete/{id}', 'UserController@delete')->name('user.delete');
+    Route::get('/', 'UserController@index')->name('users.index');
+    Route::get('/create', 'UserController@create')->name('users.create');
+    Route::post('/store', 'UserController@store')->name('users.store');
+    Route::get('/edit/{id}', 'UserController@edit')->name('users.edit');
+    Route::post('/update/{id}', 'UserController@updat')->name('users.update');
+    Route::get('/delete/{id}', 'UserController@delete')->name('users.delete');
 
 });

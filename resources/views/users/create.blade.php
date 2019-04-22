@@ -6,15 +6,20 @@
             <h2>{{ trans('app.users-create') }}</h2>
         </div>
         <div class="col-sm-3">
-            <a href="{{ route('user.index') }}">
+            <a href="{{ route('users.index') }}">
                 <button class="btn add-new-user">{{ trans('app.users-index') }}</button>
             </a>
         </div>
     </div>
     <div style="padding-bottom: 40px;" class="row add-new-user-form justify-content-center">
         <div class="col-sm-8">
-            <form action="{{ route('user.store') }}" method="post" role="form">
+            <form action="{{ route('users.store') }}" method="post" role="form">
                 @csrf
+
+                <input type="hidden" name="company_id" value="{{ \Illuminate\Support\Facades\Auth::user()->company_id }}" />
+                <input type="hidden" name="company_name" value="{{ \Illuminate\Support\Facades\Auth::user()->company_name }}" />
+                <input type="hidden" name="country" value="{{ \Illuminate\Support\Facades\Auth::user()->country }}" />
+                <input type="hidden" name="state" value="{{ \Illuminate\Support\Facades\Auth::user()->state }}" />
 
                 <div class="form-group row">
                     <label for="name" class="col-sm-4 col-form-label text-md-right">{{ __('Name') }}</label>
