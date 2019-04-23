@@ -6,6 +6,7 @@ use App\Http\Requests\PeriodStore;
 use App\Period;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class PeriodController
@@ -30,6 +31,10 @@ class PeriodController extends Controller
 
     public function update(PeriodStore $request, int $id)
     {
+        if(Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         $period = $this->period::findOrFail($id);
 
         $validated = $request->validated();
@@ -44,6 +49,10 @@ class PeriodController extends Controller
 
     public function edit(int $id)
     {
+        if(Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         $data['period'] = $this->period::findOrFail($id);
 
         return view('periods.edit', $data);
@@ -55,6 +64,10 @@ class PeriodController extends Controller
      */
     public function store(PeriodStore $request) : RedirectResponse
     {
+        if(Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         $period = new Period($request->all());
 
         $period->save();
@@ -68,6 +81,10 @@ class PeriodController extends Controller
      */
     public function delete(int $id) : RedirectResponse
     {
+        if(Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         $period = $this->period::findOrFail($id);
 
         $period->delete();

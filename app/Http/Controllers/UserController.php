@@ -36,6 +36,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->role == 2 || Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         $data['users'] = $this->users->getUsersById();
 
         return view('users.index', $data);

@@ -49,6 +49,10 @@ class CompanyController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->role == 2 || Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         // add H1 header
         $data['companyTitle'] = trans('app.companies-create');
 
@@ -62,6 +66,10 @@ class CompanyController extends Controller
      */
     public function store(StoreCompany $request)
     {
+        if(Auth::user()->role == 2 || Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         // Validate request company data
         $company = new Company($request->all());
 

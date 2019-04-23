@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Requests\CategoryStore;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class CategoryController
@@ -30,6 +31,10 @@ class CategoryController extends Controller
 
     public function update(CategoryStore $request, int $id)
     {
+        if(Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         $category = $this->category::findOrFail($id);
 
         $validated = $request->validated();
@@ -43,6 +48,10 @@ class CategoryController extends Controller
 
     public function edit(int $id)
     {
+        if(Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         $data['category'] = $this->category::findOrFail($id);
 
         return view('categories.edit', $data);
@@ -54,6 +63,10 @@ class CategoryController extends Controller
      */
     public function store(CategoryStore $request) : RedirectResponse
     {
+        if(Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         $category = new Category($request->all());
 
         $category->save();
@@ -67,6 +80,10 @@ class CategoryController extends Controller
      */
     public function delete(int $id)
     {
+        if(Auth::user()->role == 3) {
+            return redirect()->back()->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
         $category = $this->category::findOrFail($id);
 
         $category->delete();
