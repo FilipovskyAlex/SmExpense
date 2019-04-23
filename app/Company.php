@@ -38,12 +38,20 @@ class Company extends Model
     {
         $user_id = Auth::user()->id;
 
+        $AND = '';
+
         if(Auth::user()->parent_id !== 0) {
             $user_id = Auth::user()->parent_id;
         }
 
+        if(Auth::user()->role != 1) {
+            $AND = "
+                AND c.id IN (SELECT ud.company_id FROM user_details AS ud WHERE ud.user_id=".Auth::user()->id.")
+            ";
+        }
+
         return DB::select(DB::raw("
-            SELECT * FROM companies as c WHERE user_id = $user_id ORDER BY name ASC
+            SELECT * FROM companies AS c WHERE c.user_id=$user_id $AND ORDER BY c.name ASC
         "));
     }
 }

@@ -13,7 +13,7 @@ class UserDetails extends Model
     /**
      * @var string
      */
-    protected $table = 'user-details';
+    protected $table = 'user_details';
 
     /**
      * @var array

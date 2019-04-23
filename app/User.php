@@ -122,7 +122,7 @@ class User extends Authenticatable
             $parent_id = Auth::user()->id;
         }
 
-        $table = DB::table('user-details');
+        $table = DB::table('user_details');
         $table->where('user_id', $id);
         $table->where('company_id', $company_id);
 
