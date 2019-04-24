@@ -128,6 +128,15 @@
 
 @section('script')
     <script>
+        function calcBudget() {
 
+            let unitPrice = $("input[name = 'unit']").val();
+            let quantity = $("input[name = 'quantity']").val();
+            let budget = unitPrice * quantity;
+
+            // We parse our number to float type and set afterDigits to 0
+            budget = parseFloat(budget).toFixed(0);
+            $("input[name = 'budget']").val(budget);
+        }
     </script>
 @endsection

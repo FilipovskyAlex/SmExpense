@@ -24,12 +24,20 @@ class CreateBudgetRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_id' => 'required|integer',
-            'period_id' => 'required|integer',
+            'department' => 'required|integer|not_regex:/Choose department/i',
+            'period' => 'required|integer|not_regex:/Choose period/i',
             'item' => 'required',
             'unit' => 'required|integer',
             'quantity' => 'required|integer',
             'budget' => 'required|integer',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'department:not_regex' => 'Department is required',
+            'period:not_regex' => 'Period is required'
         ];
     }
 }
