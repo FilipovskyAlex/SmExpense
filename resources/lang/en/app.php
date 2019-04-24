@@ -11,4 +11,8 @@ return [
     'users-index' => 'Users',
     'users-create' => 'Add new User',
     'users-edit' => 'Edit user',
+
+    'budgets-index' => 'Budgets',
+    'budgets-create' => 'Add new budget',
+    'budgets-edit' => 'Edit budget',
 ];

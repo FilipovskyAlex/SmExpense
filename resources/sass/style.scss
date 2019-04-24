@@ -980,3 +980,104 @@ div.container-fluid {
         }
     }
 }
+
+// Budget create page
+
+.row.create-budgets {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    .col-sm-9 {
+        padding: 10px 0 20px 60px ;
+
+        h2 {
+            text-align: left;
+            color: $pink;
+            letter-spacing: 0.5px;
+        }
+    }
+    .col-sm-3 {
+        padding-top: 22px;
+        padding-left: 50px;
+
+        a {
+            text-decoration: none;
+
+            button.add-new-budget {
+                background-color: $pink;
+                color: $white;
+            }
+
+            button.add-new-budget:hover {
+                background-color: #f68fad;
+            }
+        }
+    }
+}
+
+
+
+// Budget index page
+
+.row.index-budgets {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    .col-sm-9 {
+        padding: 10px 0 20px 60px ;
+
+        h2 {
+            text-align: left;
+            color: $pink;
+            letter-spacing: 0.5px;
+        }
+    }
+    .col-sm-3 {
+        padding-top: 22px;
+        padding-left: 50px;
+
+        a {
+            text-decoration: none;
+
+            button.add-new-budget {
+                background-color: $pink;
+                color: $white;
+            }
+
+            button.add-new-budget:hover {
+                background-color: #f68fad;
+            }
+        }
+    }
+}
+
+.row.add-new-bud-form {
+    .col-sm-7 {
+        form {
+            .form-group {
+                label {
+                    color: #f62e75;
+                    font-size: 16px;
+                }
+
+                div {
+                    input, select {
+                        border: none;
+                        outline: none;
+                        border: 0.5px solid #f62e75;
+                    }
+
+                    button.add-bud-btn {
+                        background-color: $pink;
+                        color: $white;
+                    }
+                    button.add-bud-btn:hover {
+                        background-color: #f68fad;
+                    }
+                }
+            }
+        }
+    }
+}
