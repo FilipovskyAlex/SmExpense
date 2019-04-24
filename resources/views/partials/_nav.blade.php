@@ -19,7 +19,7 @@
                 <a class="nav-link" href="{{ route('categories_periods.index') }}">Depart. & periods</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Budgets</a>
+                <a class="nav-link" href="{{ route('budgets.index') }}">Budgets</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Expense requests</a>

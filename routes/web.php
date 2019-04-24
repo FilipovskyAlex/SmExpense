@@ -96,3 +96,18 @@ Route::prefix('users')->group(function () {
     Route::get('/delete/{id}', 'UserController@delete')->name('users.delete');
 
 });
+
+/*
+Budgets
+*/
+
+Route::prefix('budgets')->group(function () {
+
+    Route::get('/', 'BudgetController@index')->name('budgets.index');
+    Route::get('/create', 'BudgetController@create')->name('budgets.create');
+    Route::post('/store', 'BudgetController@store')->name('budgets.store');
+    Route::get('/edit/{id}', 'BudgetController@edit')->name('budgets.edit');
+    Route::post('/update/{id}', 'BudgetController@update')->name('budgets.update');
+    Route::get('/delete/{id}', 'BudgetController@delete')->name('budgets.delete');
+
+});
