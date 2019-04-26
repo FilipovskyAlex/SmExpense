@@ -33,21 +33,35 @@
     <div class="row table-budgets">
         <div class="col-sm-2 budget-sidebar">
             @if(isset($categories))
+
+                @php
+                    $i = 0;
+                @endphp
+
                 <h2>Categories</h2>
                 <div>
                     @foreach($categories as $category)
+                        {{-- Add style for selected category.
+                        If category is selected by user,
+                        it has background-color from $colors array--}}
+                        @php
+                            $active = $department == $category->id ? "true" : "false";
+                            $display = $department == $category->id ? "display:none" : "display:block";
+                            $style = $department == $category->id ? "background-color: $colors[$i]; color: white" : "border: 2px solid $colors[$i]; background-color: white; color: black";
+                        @endphp
                         {{-- When we click on department we go to the page where will display budgets for choosing department and period --}}
-                        <a style="display: block;" href="/budgets?department={{ $category->id }}&period={{ $period_id }}">
-                            <div class="cat-group-budget">
+                        <a style="display: block" href="/budgets?department={{ $category->id }}&period={{ $period_id }}">
+                            <div style="{{ $style }}" class="cat-group-budget" datatype="{{ $active }}">
                                 <p>{{ $category->name }}</p>
-                                <p>Expense total / Budget total</p>
-                                <p>Spent</p>
+                                <p style="{{ $display }}">Expense total / Budget total</p>
+                                <p style="{{ $display }}">Spent</p>
                             </div>
                         </a>
+                        @php $i++ @endphp
+                        @php if($i == count($colors) - 1) { $i = 0; } @endphp
                     @endforeach
                 </div>
             @endif
-
         </div>
         <div class="col-sm-9">
             <div class="budget-table">

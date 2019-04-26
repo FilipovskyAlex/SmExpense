@@ -925,12 +925,16 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
 
 .row.table-budgets .col-sm-2.budget-sidebar div a {
   text-decoration: none;
-  background-color: #ffe6e3;
   border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.row.table-budgets .col-sm-2.budget-sidebar div a .cat-group-budget {
+  padding-bottom: 7px;
 }
 
 .row.table-budgets .col-sm-2.budget-sidebar div a .cat-group-budget p {
-  color: #bc001b;
+  margin-bottom: 0;
   text-align: center;
 }
 

@@ -1111,12 +1111,14 @@ div.container-fluid {
 
             a {
                 text-decoration: none;
-                background-color: $red;
                 border-radius: 3px;
+                margin-bottom: 10px;
 
                 .cat-group-budget {
+                    padding-bottom: 7px;
+
                     p {
-                        color: $darkRed;
+                        margin-bottom: 0;
                         text-align: center;
                     }
                 }
