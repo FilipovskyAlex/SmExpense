@@ -1105,6 +1105,23 @@ div.container-fluid {
         h2 {
             text-align: center;
         }
+
+        div {
+            padding-top: 7px;
+
+            a {
+                text-decoration: none;
+                background-color: $red;
+                border-radius: 3px;
+
+                .cat-group-budget {
+                    p {
+                        color: $darkRed;
+                        text-align: center;
+                    }
+                }
+            }
+        }
     }
 
     .col-sm-9 {

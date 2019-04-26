@@ -9,6 +9,7 @@ use App\Period;
 use App\Providers\CommonProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Class BudgetController
@@ -42,11 +43,20 @@ class BudgetController extends Controller
             return redirect()->route('companies.index')->with('error', 'Please select / create your company first');
         }
 
+        // If we not choose particular department and period, then redirect to default query
+        if(Input::get('department') == false || Input::get('period') == false) {
+            return redirect('/budgets?department=all&period=all');
+        }
+
+        // Dept and per for particular query option
+        $data['department'] = Input::get('department');
+        $data['period_id'] = Input::get('period');
+
         $data['periods'] = $this->periods->getPeriodsByUser();
         $data['categories'] = $this->categories->getCategoriesByUser();
         $data['colors'] = $this->colors;
         $data['budgets'] = $this->budgets->getBudgetById();
-//dd($data['budgets']);
+
         return view('budgets.index', $data);
     }
 

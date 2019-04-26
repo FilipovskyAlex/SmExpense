@@ -6,7 +6,7 @@
             <h2>{{ trans('app.budgets-index') }}</h2>
         </div>
         <div class="col-sm-3">
-            <a href="#">
+            <a href="{{ route('budgets.index') }}">
                 <button style="width: 9rem; letter-spacing: 2px" class="btn add-new-budget">List all &nbsp<i
                             class="fas fa-list"></i></button>
             </a>
@@ -18,7 +18,7 @@
         </div>
         <div class="col-sm-3 chooseBud">
             <div class="dropdown" aria-label="selectBudget">
-                <select id="selectBudget" class="form-control">
+                <select id="selectBudget" class="form-control" onchange="changePeriod(this.value)">
                     <option>Choose budget period</option>
                     @if(isset($periods))
                         @foreach($periods as $period)
@@ -32,7 +32,22 @@
 
     <div class="row table-budgets">
         <div class="col-sm-2 budget-sidebar">
-            <h2>Categories</h2>
+            @if(isset($categories))
+                <h2>Categories</h2>
+                <div>
+                    @foreach($categories as $category)
+                        {{-- When we click on department we go to the page where will display budgets for choosing department and period --}}
+                        <a style="display: block;" href="/budgets?department={{ $category->id }}&period={{ $period_id }}">
+                            <div class="cat-group-budget">
+                                <p>{{ $category->name }}</p>
+                                <p>Expense total / Budget total</p>
+                                <p>Spent</p>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            @endif
+
         </div>
         <div class="col-sm-9">
             <div class="budget-table">
@@ -63,7 +78,7 @@
                     </tbody>
                 </table>
             </div>
-            @if(isset($budgets))
+            @if(count($budgets) > 0)
                 <div class="col-sm-12 total-price">
                     <div class="col-sm-5 total">
                         <span>Budget information</span>
@@ -80,4 +95,16 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
+    <script>
+        {{-- If we choose period we get that url below with select department and period --}}
+        function changePeriod(id) {
+            let url = "/budgets?department={{ $department }}&period="+id;
+
+            // currently open window will be on "url" location
+            window.location = url;
+        }
+    </script>
 @endsection

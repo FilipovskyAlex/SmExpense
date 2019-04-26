@@ -919,6 +919,21 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   text-align: center;
 }
 
+.row.table-budgets .col-sm-2.budget-sidebar div {
+  padding-top: 7px;
+}
+
+.row.table-budgets .col-sm-2.budget-sidebar div a {
+  text-decoration: none;
+  background-color: #ffe6e3;
+  border-radius: 3px;
+}
+
+.row.table-budgets .col-sm-2.budget-sidebar div a .cat-group-budget p {
+  color: #bc001b;
+  text-align: center;
+}
+
 .row.table-budgets .col-sm-9 {
   padding: 0 0 0 60px;
   padding-left: 40px;
