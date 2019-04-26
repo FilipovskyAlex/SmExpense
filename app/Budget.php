@@ -35,6 +35,17 @@ class Budget extends Model
         $period = "";
         $AND = "";
 
+        // User and manager can see only their self-created budgets for their categories and choosing companies
+        if(Auth::user()->role != 1) {
+            $AND = "
+                AND cat.id IN(
+                    SELECT ud.category_id
+                    FROM user_details as ud
+                    WHERE ud.user_id=".Auth::user()->id."
+                )
+            ";
+        }
+
         // Add query raw to common query if we choose particular department to display its budgets
         if(Input::get('department') && Input::get('department') != "all") {
             $department = "AND b.category_id=".Input::get('department')."";
@@ -53,8 +64,8 @@ class Budget extends Model
             LEFT JOIN companies as c ON b.company_id=c.id
             WHERE b.company_id=$company_id
             $department
-            $AND
             $period
+            $AND
             ORDER BY b.id DESC
         "));
     }
