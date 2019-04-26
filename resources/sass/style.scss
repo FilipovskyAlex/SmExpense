@@ -1016,43 +1016,6 @@ div.container-fluid {
     }
 }
 
-
-
-// Budget index page
-
-.row.index-budgets {
-    width: auto;
-    margin: 0;
-    padding: 0;
-
-    .col-sm-9 {
-        padding: 10px 0 20px 60px ;
-
-        h2 {
-            text-align: left;
-            color: $pink;
-            letter-spacing: 0.5px;
-        }
-    }
-    .col-sm-3 {
-        padding-top: 22px;
-        padding-left: 50px;
-
-        a {
-            text-decoration: none;
-
-            button.add-new-budget {
-                background-color: $pink;
-                color: $white;
-            }
-
-            button.add-new-budget:hover {
-                background-color: #f68fad;
-            }
-        }
-    }
-}
-
 .row.add-new-bud-form {
     .col-sm-7 {
         form {
@@ -1081,3 +1044,192 @@ div.container-fluid {
         }
     }
 }
+
+// Budget index page
+
+.row.index-budgets {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    .col-sm-3 {
+        padding: 10px 0 20px 60px ;
+
+        h2 {
+            text-align: left;
+            color: $pink;
+            letter-spacing: 0.5px;
+        }
+    }
+    .col-sm-3 {
+        padding-top: 22px;
+        padding-left: 50px;
+
+        a {
+            text-decoration: none;
+
+            button.add-new-budget {
+                background-color: $pink;
+                color: $white;
+            }
+
+            button.add-new-budget:hover {
+                background-color: #f68fad;
+            }
+        }
+    }
+
+    .col-sm-3.chooseBud {
+        padding-left: 0;
+
+        .dropdown {
+            width: 250px;
+
+            select {
+                border: none;
+                outline: none;
+                border: 0.5px solid #f62e75;
+            }
+        }
+    }
+}
+
+.row.table-budgets {
+    width: auto;
+    margin: 0;
+    padding: 0 0 60px 0;
+
+    .col-sm-2.budget-sidebar {
+        padding-right: 0px;
+
+        h2 {
+            text-align: center;
+        }
+    }
+
+    .col-sm-9 {
+        padding: 0 0 0 60px;
+        padding-left: 40px;
+
+        .budget-table {
+            table.table {
+                border-bottom: 1px solid $darkRed;
+
+                thead {
+                    tr {
+                        th#budget-item {
+                            border: none;
+                            border: 1px solid $darkRed;
+                            color: $darkRed;
+                            font-size: 1.5rem;
+                            text-align: left;
+                        }
+
+                        th {
+                            border: none;
+                            border: 1px solid $darkRed;
+                            color: $darkRed;
+                            font-size: 1.5rem;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td.request {
+                            padding: 5px 0 5px 10px;
+                            border: none;
+                            border: 1px solid $darkRed;
+
+                            h5 {
+                                span {
+                                    color: $lightBlack;
+                                    font-weight: bolder;
+                                    padding-top: 5px;
+                                    letter-spacing: 1.7px;
+                                }
+                            }
+
+                            p {
+                                margin-bottom: 0;
+                                padding-left: 0;
+                                font-style: italic;
+
+                                span {
+                                    color: $pink;
+                                    font-weight: bolder;
+                                }
+                            }
+                        }
+
+                        td.amount {
+                            text-align: center;
+                            vertical-align: middle;
+                            font-weight: bolder;
+                            color: $darkRed;
+                            border: none;
+                            border: 1px solid $darkRed;
+                        }
+
+                        td.approvers {
+                            text-align: center;
+                            vertical-align: middle;
+                            font-weight: bolder;
+                            color: $darkRed;
+                            border: none;
+                            border: 1px solid $darkRed;
+                        }
+
+                        td.details {
+                            text-align: center;
+                            vertical-align: middle;
+                            font-weight: bolder;
+                            color: $darkRed;
+                            border: none;
+                            border: 1px solid $darkRed;
+                        }
+                    }
+                }
+            }
+        }
+
+        .col-sm-12.total-price {
+            .col-sm-5.total {
+                border-bottom: 1px solid $darkRed;
+                float: right;
+                padding-bottom: 7px;
+
+                span {
+                    color: $darkRed;
+                    letter-spacing: normal;
+                }
+
+                .col-sm-5.list {
+                    padding-left: 0;
+
+                    p {
+                        width: 350px;
+                        margin-bottom: 0;
+                        text-align: left;
+
+                        span {
+                            float: right;
+                            color: $pink;
+                            font-weight: bolder;
+                        }
+                    }
+                }
+            }
+        }
+
+        h4 {
+            width: 400px;
+            margin: 0 auto;
+            color: $darkRed;
+            font-size: 2rem;
+            letter-spacing: normal;
+        }
+    }
+}
+

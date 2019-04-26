@@ -34,7 +34,20 @@ class BudgetController extends Controller
      */
     public function index()
     {
-        return view('budgets.index');
+        if(Auth::user()->role == 3) {
+            return redirect()->route('home')->with('error', 'Access denied, you do not have sufficient privilege');
+        }
+
+        if(Auth::user()->company_id == null) {
+            return redirect()->route('companies.index')->with('error', 'Please select / create your company first');
+        }
+
+        $data['periods'] = $this->periods->getPeriodsByUser();
+        $data['categories'] = $this->categories->getCategoriesByUser();
+        $data['colors'] = $this->colors;
+        $data['budgets'] = $this->budgets->getBudgetById();
+//dd($data['budgets']);
+        return view('budgets.index', $data);
     }
 
     /**

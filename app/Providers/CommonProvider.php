@@ -40,4 +40,11 @@ class CommonProvider extends ServiceProvider
             'cyan',
         ];
     }
+
+    public static function format_number(int $value)
+    {
+        $value = number_format($value, 2);
+        $value = '$'.$value;
+        return $value;
+    }
 }

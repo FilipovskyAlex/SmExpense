@@ -836,17 +836,38 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   background-color: #f68fad;
 }
 
+.row.add-new-bud-form .col-sm-7 form .form-group label {
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.row.add-new-bud-form .col-sm-7 form .form-group div input,
+.row.add-new-bud-form .col-sm-7 form .form-group div select {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+}
+
+.row.add-new-bud-form .col-sm-7 form .form-group div button.add-bud-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.row.add-new-bud-form .col-sm-7 form .form-group div button.add-bud-btn:hover {
+  background-color: #f68fad;
+}
+
 .row.index-budgets {
   width: auto;
   margin: 0;
   padding: 0;
 }
 
-.row.index-budgets .col-sm-9 {
+.row.index-budgets .col-sm-3 {
   padding: 10px 0 20px 60px;
 }
 
-.row.index-budgets .col-sm-9 h2 {
+.row.index-budgets .col-sm-3 h2 {
   text-align: left;
   color: #f62e75;
   letter-spacing: 0.5px;
@@ -870,24 +891,142 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   background-color: #f68fad;
 }
 
-.row.add-new-bud-form .col-sm-7 form .form-group label {
-  color: #f62e75;
-  font-size: 16px;
+.row.index-budgets .col-sm-3.chooseBud {
+  padding-left: 0;
 }
 
-.row.add-new-bud-form .col-sm-7 form .form-group div input,
-.row.add-new-bud-form .col-sm-7 form .form-group div select {
+.row.index-budgets .col-sm-3.chooseBud .dropdown {
+  width: 250px;
+}
+
+.row.index-budgets .col-sm-3.chooseBud .dropdown select {
   border: none;
   outline: none;
   border: 0.5px solid #f62e75;
 }
 
-.row.add-new-bud-form .col-sm-7 form .form-group div button.add-bud-btn {
-  background-color: #f62e75;
-  color: #ffffff;
+.row.table-budgets {
+  width: auto;
+  margin: 0;
+  padding: 0 0 60px 0;
 }
 
-.row.add-new-bud-form .col-sm-7 form .form-group div button.add-bud-btn:hover {
-  background-color: #f68fad;
+.row.table-budgets .col-sm-2.budget-sidebar {
+  padding-right: 0px;
+}
+
+.row.table-budgets .col-sm-2.budget-sidebar h2 {
+  text-align: center;
+}
+
+.row.table-budgets .col-sm-9 {
+  padding: 0 0 0 60px;
+  padding-left: 40px;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table {
+  border-bottom: 1px solid #bc001b;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table thead tr th#budget-item {
+  border: none;
+  border: 1px solid #bc001b;
+  color: #bc001b;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table thead tr th {
+  border: none;
+  border: 1px solid #bc001b;
+  color: #bc001b;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table tbody tr td.request {
+  padding: 5px 0 5px 10px;
+  border: none;
+  border: 1px solid #bc001b;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table tbody tr td.request h5 span {
+  color: #2d2d2d;
+  font-weight: bolder;
+  padding-top: 5px;
+  letter-spacing: 1.7px;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table tbody tr td.request p {
+  margin-bottom: 0;
+  padding-left: 0;
+  font-style: italic;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table tbody tr td.request p span {
+  color: #f62e75;
+  font-weight: bolder;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table tbody tr td.amount {
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bolder;
+  color: #bc001b;
+  border: none;
+  border: 1px solid #bc001b;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table tbody tr td.approvers {
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bolder;
+  color: #bc001b;
+  border: none;
+  border: 1px solid #bc001b;
+}
+
+.row.table-budgets .col-sm-9 .budget-table table.table tbody tr td.details {
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bolder;
+  color: #bc001b;
+  border: none;
+  border: 1px solid #bc001b;
+}
+
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total {
+  border-bottom: 1px solid #bc001b;
+  float: right;
+  padding-bottom: 7px;
+}
+
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total span {
+  color: #bc001b;
+  letter-spacing: normal;
+}
+
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total .col-sm-5.list {
+  padding-left: 0;
+}
+
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total .col-sm-5.list p {
+  width: 350px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total .col-sm-5.list p span {
+  float: right;
+  color: #f62e75;
+  font-weight: bolder;
+}
+
+.row.table-budgets .col-sm-9 h4 {
+  width: 400px;
+  margin: 0 auto;
+  color: #bc001b;
+  font-size: 2rem;
+  letter-spacing: normal;
 }
 
