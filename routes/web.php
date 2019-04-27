@@ -111,3 +111,19 @@ Route::prefix('budgets')->group(function () {
     Route::get('/delete/{id}', 'BudgetController@delete')->name('budgets.delete');
 
 });
+
+/*
+Expenses
+*/
+
+Route::prefix('expenses')->group(function () {
+
+    Route::get('/', 'ExpenseController@index')->name('expenses.index');
+    Route::get('/create', 'ExpenseController@create')->name('expenses.create');
+    Route::post('/store', 'ExpenseController@store')->name('expenses.store');
+    Route::get('/edit/{id}', 'ExpenseController@edit')->name('expenses.edit');
+    Route::post('/update/{id}', 'ExpenseController@update')->name('expenses.update');
+    Route::get('/show/{id}', 'ExpenseController@show')->name('expenses.show');
+    Route::get('/delete/{id}', 'ExpenseController@delete')->name('expenses.delete');
+
+});
