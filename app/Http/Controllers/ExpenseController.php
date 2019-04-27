@@ -40,6 +40,11 @@ class ExpenseController extends Controller
             return redirect()->route('home')->with('error', 'Access denied, you do not have sufficient privilege');
         }
 
+        $data['periods'] = $this->periods->getPeriodsByUser();
+        $data['categories'] = $this->categories->getCategoriesByUser();
+        $data['colors'] = $this->colors;
+        $data['budgets'] = $this->budgets->getBudgetById();
+
         return view('expenses.index');
     }
 

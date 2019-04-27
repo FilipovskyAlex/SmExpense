@@ -15,4 +15,8 @@ return [
     'budgets-index' => 'Budgets',
     'budgets-create' => 'Add new budget',
     'budgets-edit' => 'Edit budget',
+
+    'expenses-index' => 'Expenses',
+    'expenses-create' => 'Add new expense',
+    'expenses-edit' => 'Edit expense',
 ];

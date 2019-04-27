@@ -22,7 +22,7 @@
                 <a class="nav-link" href="{{ route('budgets.index') }}">Budgets</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Expense requests</a>
+                <a class="nav-link" href="{{ route('expenses.index') }}">Expense requests</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Reports</a>

@@ -1252,3 +1252,123 @@ div.container-fluid {
     }
 }
 
+// Expenses
+
+// create expense page
+
+.row.create-expenses {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    .col-sm-9 {
+        padding: 10px 0 20px 60px ;
+
+        h2 {
+            text-align: left;
+            color: $pink;
+            letter-spacing: 0.5px;
+        }
+    }
+    .col-sm-3 {
+        padding-top: 22px;
+        padding-left: 50px;
+
+        a {
+            text-decoration: none;
+
+            button.add-new-expense {
+                background-color: $pink;
+                color: $white;
+            }
+
+            button.add-new-expense:hover {
+                background-color: #f68fad;
+            }
+        }
+    }
+}
+
+.row.add-new-exp-form {
+    .col-sm-7 {
+        padding-bottom: 40px;
+
+        form {
+            .form-group {
+                label {
+                    color: #f62e75;
+                    font-size: 16px;
+                }
+
+                div {
+                    input, select, textarea {
+                        border: none;
+                        outline: none;
+                        border: 0.5px solid #f62e75;
+                    }
+
+                    input#file {
+                        height: 100%;
+                    }
+
+                    button.add-exp-btn {
+                        background-color: $pink;
+                        color: $white;
+                    }
+                    button.add-exp-btn:hover {
+                        background-color: #f68fad;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// expense index page
+
+.row.index-expense {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    .col-sm-3 {
+        padding: 10px 0 20px 60px ;
+
+        h2 {
+            text-align: left;
+            color: $pink;
+            letter-spacing: 0.5px;
+        }
+    }
+    .col-sm-3 {
+        padding-top: 22px;
+        padding-left: 50px;
+
+        a {
+            text-decoration: none;
+
+            button.add-new-expense {
+                background-color: $pink;
+                color: $white;
+            }
+
+            button.add-new-expense:hover {
+                background-color: #f68fad;
+            }
+        }
+    }
+
+    .col-sm-3.chooseExp {
+        padding-left: 0;
+
+        .dropdown {
+            width: 250px;
+
+            select {
+                border: none;
+                outline: none;
+                border: 0.5px solid #f62e75;
+            }
+        }
+    }
+}
