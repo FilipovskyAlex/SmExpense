@@ -1100,6 +1100,13 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   border: 0.5px solid #f62e75;
 }
 
+.row.add-new-exp-form .col-sm-7 form .form-group div p.red {
+  color: #bc001b;
+  font-weight: bolder;
+  padding-top: 3px;
+  margin-bottom: 0;
+}
+
 .row.add-new-exp-form .col-sm-7 form .form-group div input#file {
   height: 100%;
 }

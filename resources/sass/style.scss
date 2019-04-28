@@ -1307,6 +1307,13 @@ div.container-fluid {
                         border: 0.5px solid #f62e75;
                     }
 
+                    p.red {
+                        color: $darkRed;
+                        font-weight: bolder;
+                        padding-top: 3px;
+                        margin-bottom: 0;
+                    }
+
                     input#file {
                         height: 100%;
                     }

@@ -131,3 +131,40 @@
         </div>
     </div>
 @endsection
+
+@section('script')
+    <script>
+        function changeBudget(val) {
+            val = val.split(':');
+
+            let budget = parseInt(val[1]);
+
+            $('#price').attr("placeholder", "budgetLimit:"+budget);
+            $('#price').attr("max", budget);
+            $('#outside').val(budget);
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            $('#price').keyup(function (e) {
+               let val = $('#budget_id').val();
+
+               val = val.split(':');
+               let budget = parseInt(val[1]);
+
+               let price = this.value;
+               price = parseInt(price);
+
+               if(price > budget) {
+                   $('#expenses').attr("onsubmit", "return false");
+                   $('#price').addClass('red');
+                   $('#out_of_budget').show();
+               } else {
+                   $('#expenses').removeAttr("onsubmit");
+                   $('#price').removeClass('red');
+                   $('#out_of_budget').hide();
+               }
+            });
+        });
+
+    </script>
+@endsection
