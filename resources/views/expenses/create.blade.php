@@ -28,7 +28,7 @@
                             <option value="">Choose budget item</option>
                             @if(isset($budgets))
                                 @foreach($budgets as $budget)
-                                    <option value="{{ $budget->id.':'.$budget->outside.':'.$budget->category_id.':'.$budget->period_id }}">{{ $budget->category.':'.$budget->item }}</option>
+                                    <option value="{{ $budget->id.':'.$budget->outside.':'.$budget->category_id.':'.$budget->period_id }}">{{ $budget->category." : ".$budget->item }}</option>
                                 @endforeach
                             @endif
                         </select>

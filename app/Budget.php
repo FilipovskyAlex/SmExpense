@@ -56,9 +56,11 @@ class Budget extends Model
             $period = "AND b.period_id=".Input::get('period')."";
         }
 
+        // CASE: we send as outside param the diff btw budget and summary prices of all expenses that belongs to this budget
         return DB::select(DB::raw("
-            SELECT b.id, b.company_id, b.category_id, b.period_id, b.item, b.unit, b.quantity, b.budget, b.created_at, u.name as name
-            FROM budgets as b 
+            SELECT b.id, b.company_id, b.category_id, b.period_id, b.item, b.unit, b.quantity, b.budget, b.created_at, u.name as name, cat.name as category, b.budget as outside
+            
+            FROM budgets as b
             LEFT JOIN users as u ON b.user_id=u.id
             LEFT JOIN categories as cat ON b.category_id=cat.id
             LEFT JOIN companies as c ON b.company_id=c.id
