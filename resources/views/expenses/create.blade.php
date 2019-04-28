@@ -58,12 +58,12 @@
                     </div>
                 </div>
 
-                <div class="form-group row {{ $errors->has('price') ? ' is-invalid' : '' }}">
+                <div class="form-group row">
                     <label for="price" class="col-sm-4 col-form-label text-md-right">{{ __('Price') }}</label>
 
                     <div class="col-sm-6">
 
-                        <input type="text" value="{{ old('price') }}" class="form-control" name="price" id="price">
+                        <input type="text" value="{{ old('price') }}" class="form-control {{ $errors->has('price') ? ' is-invalid' : '' }}" name="price" id="price">
                         <p class="red" id="out_of_budget" style="display: none;">Sorry, your price is out of budget limit!</p>
 
                         @if ($errors->has('price'))
@@ -74,12 +74,12 @@
                     </div>
                 </div>
 
-                <div class="form-group row {{ $errors->has('subject') ? ' is-invalid' : '' }}">
+                <div class="form-group row">
                     <label for="subject" class="col-sm-4 col-form-label text-md-right">{{ __('Subject') }}</label>
 
                     <div class="col-sm-6">
 
-                        <input type="text" value="{{ old('subject') }}" class="form-control" name="subject" id="subject">
+                        <input type="text" value="{{ old('subject') }}" class="form-control {{ $errors->has('subject') ? ' is-invalid' : '' }}" name="subject" id="subject">
 
                         @if ($errors->has('subject'))
                             <span class="invalid-feedback" role="alert">

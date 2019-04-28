@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Budget;
 use App\Category;
 use App\Expense;
+use App\Http\Requests\CreateExpenseRequest;
 use App\Period;
 use App\Providers\CommonProvider;
 use Illuminate\Http\Request;
@@ -64,9 +65,47 @@ class ExpenseController extends Controller
         return view('expenses.create', $data);
     }
 
-    public function store(Request $request)
+    public function store(CreateExpenseRequest $request)
     {
-dd($request);
+        $validated = $request->all();
+
+        $user_id = Auth::user()->id;
+
+        $expense = ($this->expenses);
+
+        if(Auth::user()->parent_id == 0) {
+            $expense->approver_id = Auth::user()->id;
+        } else {
+            $expense->approver_id = Auth::user()->parent_id;
+        }
+
+        $expense->user_id = $user_id;
+        $expense->company_id = $validated['company_id'];
+        $expense->priority = $validated['priority'];
+        $expense->price = $validated['price'];
+        $expense->outside = $validated['outside'];
+        $expense->subject = $validated['subject'];
+        $expense->description = $validated['description'];
+
+        $budget = explode(':', $validated['budget_id']);
+
+        $expense->budget_id = $budget[0];
+        $expense->category_id = $budget[2];
+        $expense->period_id = $budget[3];
+
+        if($request->file('file') && $request->file('file')->isValid()) {
+            $path = './uploads';
+
+            $filename = time().'.'.$validated['file']->getClientOriginalName();
+
+            $request->file('file')->move($path, $filename);
+
+            $expense->file = $filename;
+        }
+
+        $expense->save();
+
+        return redirect()->back()->with('message', 'New expense is created');
     }
 
     public function edit()
