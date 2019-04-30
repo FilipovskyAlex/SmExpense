@@ -1549,6 +1549,11 @@ div.container-fluid {
                             text-align: center;
 
                             .details-expense {
+                                h5 {
+                                    color: $darkRed;
+                                    margin-bottom: 0;
+                                }
+
                                 p {
                                     margin-bottom: 0;
                                     padding-left: 0;

@@ -1330,6 +1330,11 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   text-align: center;
 }
 
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#details .details-expense h5 {
+  color: #bc001b;
+  margin-bottom: 0;
+}
+
 .row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#details .details-expense p {
   margin-bottom: 0;
   padding-left: 0;

@@ -94,36 +94,48 @@
                     <tbody>
                         <form action="" role="form" method="post">
                             @csrf
-                            <tr>
-                                <td id="checkbox"><input type="checkbox" name="expenses[]" value=""></td>
-                                <td id="req">
-                                    <h5>
-                                        <a href="#">
-                                            subject of the expense
-                                        </a>
-                                        /
-                                        <span> Budget item (<span style="color: #f62e75">Budget left &nbsp;</span>)</span>
-                                    </h5>
-                                    <p><span>User name: &nbsp;</span>Created at: <span>10/23/1212</span></p>
-                                    <p><strong>comment box</strong></p>
-                                </td>
-                                <td id="amount">
-                                    <p>$ 5000</p>
-                                    <a href="#"><span class="expense-overdue">status</span></a>
-                                </td>
-                                <td id="approve">
-                                    <p><img src="" alt="" width="25px"></p>
-                                    <p><img src="" alt="" width="25px"></p>
-                                    <p>Email@com</p>
-                                </td>
-                                <td id="details">
-                                    <div class="details-expense">
-                                        <p><span>$&nbsp;1000</span>&nbsp; requested</p>
-                                        <p><span style="color: #9561e2">$&nbsp;500</span>&nbsp; left</p>
-                                        <p><strong>Priority</strong> High</p>
-                                    </div>
-                                </td>
-                            </tr>
+                            @if(isset($expenses))
+                                @foreach($expenses as $expense)
+                                    @if($expense->company_id == \Illuminate\Support\Facades\Auth::user()->company_id)
+                                        <tr>
+                                            <td id="checkbox"><input type="checkbox" name="expenses[]" value=""></td>
+                                            <td id="req">
+                                                <h5>
+                                                    <a href="#">
+                                                        {{ $expense->subject }}
+                                                    </a>
+                                                    /
+                                                    <span>
+                                                        {{ $expense->item }} (
+                                                        <span style="color: #f62e75">
+                                                            {{ \App\Providers\CommonProvider::format_number($expense->budget - $expense->price) }}
+                                                        </span>)
+                                                    </span>
+                                                </h5>
+                                                <p><span>User name:&nbsp; {{ $expense->user }}&nbsp;&nbsp;</span>Created at: <span>{{ date('F d, Y', strtotime($expense->created_at)) }}</span></p>
+                                                <p><strong>{{ $expense->comment }}</strong></p>
+                                            </td>
+                                            <td id="amount">
+                                                <p>{{ \App\Providers\CommonProvider::format_number($expense->budget)}}</p>
+                                                <a href="#"><span class="expense-overdue">{{ \App\Expense::getStatus($expense->status) }}</span></a>
+                                            </td>
+                                            <td id="approve">
+                                                <p><img src="" alt="" width="25px"></p>
+                                                <p><img src="" alt="" width="25px"></p>
+                                                <p>{{ $expense->email }}</p>
+                                            </td>
+                                            <td id="details">
+                                                <div class="details-expense">
+                                                    <h5>{{ $expense->category }}</h5>
+                                                    <p><span>&nbsp;{{ \App\Providers\CommonProvider::format_number($expense->price) }}</span>&nbsp;requested</p>
+                                                    <p><span style="color: #9561e2">{{ \App\Providers\CommonProvider::format_number($expense->budget - $expense->price) }}</span>&nbsp; left</p>
+                                                    <p><strong>Priority</strong> {{ $expense->priority }}</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            @endif
                         </form>
                     </tbody>
                 </table>

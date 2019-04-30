@@ -44,7 +44,7 @@ class ExpenseController extends Controller
         $data['periods'] = $this->periods->getPeriodsByUser();
         $data['categories'] = $this->categories->getCategoriesByUser();
         $data['colors'] = $this->colors;
-        $data['budgets'] = $this->budgets->getBudgetById();
+        $data['expenses'] = $this->expenses->getAllExpenses();
 
         return view('expenses.index', $data);
     }
