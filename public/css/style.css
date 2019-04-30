@@ -1168,3 +1168,191 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   border: 0.5px solid #f62e75;
 }
 
+.row.table-expenses {
+  width: auto;
+  margin: 0;
+  padding: 0 0 60px 0;
+}
+
+.row.table-expenses .expense-sidebar {
+  padding-right: 0px;
+}
+
+.row.table-expenses .expense-sidebar h2 {
+  text-align: center;
+  color: #f62e75;
+  letter-spacing: 0.5px;
+}
+
+.row.table-expenses .expense-sidebar div nav {
+  background-color: #ffe6e3;
+  border-radius: 3px;
+}
+
+.row.table-expenses .expense-sidebar div nav ul {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  text-align: center;
+}
+
+.row.table-expenses .expense-sidebar div nav ul li {
+  display: block;
+  padding: 5px 0;
+}
+
+.row.table-expenses .expense-sidebar div nav ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 1.2px;
+  color: #bc001b;
+}
+
+.row.table-expenses .expense-sidebar div nav ul li:hover {
+  background-color: #F68FAD;
+}
+
+.row.table-expenses .expense-sidebar .dropdown {
+  padding-top: 10px;
+  width: auto;
+}
+
+.row.table-expenses .expense-sidebar .dropdown select {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+}
+
+.row.table-expenses .col-sm-9 {
+  padding: 0 0 0 60px;
+  padding-left: 40px;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table {
+  border-bottom: 1px solid #bc001b;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table thead tr th#request {
+  border: none;
+  border: 1px solid #bc001b;
+  color: #bc001b;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table thead tr th {
+  border: none;
+  border: 1px solid #bc001b;
+  color: #bc001b;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#checkbox {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#req {
+  padding: 5px 0 5px 10px;
+  border: none;
+  border: 1px solid #bc001b;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#req h5 a {
+  text-decoration: none;
+  color: #bc001b;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#req h5 span {
+  color: #f62e75;
+  font-weight: bolder;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#req p {
+  margin-bottom: 0;
+  padding-left: 0;
+  font-style: italic;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#req p span {
+  color: #f62e75;
+  font-weight: bolder;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#approve {
+  padding: 5px 0 5px 0;
+  border: none;
+  border: 1px solid #bc001b;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#approve p {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#approve p span {
+  color: #f62e75;
+  font-weight: bolder;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#amount {
+  padding: 5px 0 5px 0;
+  border: none;
+  border: 1px solid #bc001b;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#amount p {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#amount a {
+  text-decoration: none;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#amount a span.expense-overdue {
+  border-radius: 40px;
+  font-weight: normal;
+  color: black;
+  padding: 1px 8px;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#details {
+  padding: 5px 0 5px 0;
+  border: none;
+  border: 1px solid #bc001b;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#details .details-expense p {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#details .details-expense p span {
+  color: #f62e75;
+  font-weight: bolder;
+}
+
+.row.table-expenses .col-sm-9 .expense-table .col-sm-8 {
+  padding-top: 20px;
+  float: right;
+}
+
+.row.table-expenses .col-sm-9 .expense-table .col-sm-8 button {
+  border: none;
+  float: right;
+  outline: none;
+  margin-left: 15px;
+}
+
+.row.table-expenses .col-sm-9 .expense-table .col-sm-8 button:hover {
+  background-color: #ff0074;
+}
+

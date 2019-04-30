@@ -1379,3 +1379,206 @@ div.container-fluid {
         }
     }
 }
+
+.row.table-expenses {
+    width: auto;
+    margin: 0;
+    padding: 0 0 60px 0;
+
+    .expense-sidebar {
+        padding-right: 0px;
+
+        h2 {
+            text-align: center;
+            color: $pink;
+            letter-spacing: 0.5px;
+        }
+
+        div {
+            nav {
+            background-color: $red;
+                border-radius: 3px;
+
+                ul {
+                list-style: none;
+                    margin-bottom: 0;
+                    padding-left: 0;
+                    text-align: center;
+
+                    li {
+                        display: block;
+                        padding: 5px 0;
+
+                            a {
+                                text-decoration: none;
+                                font-size: 1.2rem;
+                                letter-spacing: 1.2px;
+                                color: $darkRed;
+                            }
+                    }
+
+                    li:hover {
+                        background-color: #F68FAD;
+                    }
+                }
+            }
+        }
+
+        .dropdown {
+            padding-top: 10px;
+            width: auto;
+
+            select {
+                border: none;
+                outline: none;
+                border: 0.5px solid #f62e75;
+            }
+        }
+    }
+    .col-sm-9 {
+        padding: 0 0 0 60px;
+        padding-left: 40px;
+
+        .expense-table {
+            table.table {
+                border-bottom: 1px solid $darkRed;
+
+                thead {
+                    tr {
+                        th#request {
+                            border: none;
+                            border: 1px solid $darkRed;
+                            color: $darkRed;
+                            font-size: 1.5rem;
+                            text-align: left;
+                        }
+
+                        th {
+                            border: none;
+                            border: 1px solid $darkRed;
+                            color: $darkRed;
+                            font-size: 1.5rem;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td#checkbox {
+                            vertical-align: middle;
+                            text-align: center;
+                        }
+
+                        td#req {
+                            padding: 5px 0 5px 10px;
+                            border: none;
+                            border: 1px solid $darkRed;
+
+                            h5 {
+                                a {
+                                    text-decoration: none;
+                                    color: $darkRed;
+                                }
+
+                                span {
+                                    color: $pink;
+                                    font-weight: bolder;
+                                }
+                            }
+
+                            p {
+                                margin-bottom: 0;
+                                padding-left: 0;
+                                font-style: italic;
+
+                                span {
+                                    color: $pink;
+                                    font-weight: bolder;
+                                }
+                            }
+                        }
+
+                        td#approve {
+                            padding: 5px 0 5px 0;
+                            border: none;
+                            border: 1px solid $darkRed;
+                            vertical-align: middle;
+                            text-align: center;
+
+                            p {
+                                margin-bottom: 0;
+                                padding-left: 0;
+
+                                span {
+                                    color: $pink;
+                                    font-weight: bolder;
+                                }
+                            }
+                        }
+
+                        td#amount {
+                            padding: 5px 0 5px 0;
+                            border: none;
+                            border: 1px solid $darkRed;
+                            vertical-align: middle;
+                            text-align: center;
+
+                            p {
+                                margin-bottom: 0;
+                                padding-left: 0;
+                            }
+
+                            a {
+                                text-decoration: none;
+
+                                span.expense-overdue {
+                                    border-radius: 40px;
+                                    font-weight: normal;
+                                    color: black;
+                                    padding: 1px 8px;
+                                }
+                            }
+                        }
+
+                        td#details {
+                            padding: 5px 0 5px 0;
+                            border: none;
+                            border: 1px solid $darkRed;
+                            vertical-align: middle;
+                            text-align: center;
+
+                            .details-expense {
+                                p {
+                                    margin-bottom: 0;
+                                    padding-left: 0;
+
+                                    span {
+                                        color: $pink;
+                                        font-weight: bolder;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .col-sm-8 {
+                padding-top: 20px;
+                float: right;
+
+                button {
+                    border: none;
+                    float: right;
+                    outline: none;
+                    margin-left: 15px;
+                }
+
+                button:hover {
+                    background-color: #ff0074;
+                }
+            }
+        }
+    }
+}

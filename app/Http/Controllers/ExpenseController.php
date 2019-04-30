@@ -46,7 +46,7 @@ class ExpenseController extends Controller
         $data['colors'] = $this->colors;
         $data['budgets'] = $this->budgets->getBudgetById();
 
-        return view('expenses.index');
+        return view('expenses.index', $data);
     }
 
     public function create()
