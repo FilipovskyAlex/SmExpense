@@ -10,6 +10,7 @@ use App\Period;
 use App\Providers\CommonProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Class ExpenseController
@@ -37,9 +38,21 @@ class ExpenseController extends Controller
             return redirect()->route('companies.index')->with('error', 'Please select / create your company first');
         }
 
-        if(Auth::user()->role == 3) {
-            return redirect()->route('home')->with('error', 'Access denied, you do not have sufficient privilege');
+//        if(Auth::user()->role == 3) {
+//            return redirect()->route('home')->with('error', 'Access denied, you do not have sufficient privilege');
+//        }
+
+        // If we not choose particular department and period, then redirect to default query
+        if(Input::get('department') == false || Input::get('period') == false || Input::get('status') == false) {
+            return redirect('/expenses?department=all&status=all&period=all');
         }
+
+        // Dept and per for particular query option
+        $data['department'] = Input::get('department');
+        // name it period_id because in a index page in foreach we have another loop variable called period as a single element of periods variable below
+        $data['period_id'] = Input::get('period');
+        $data['status'] = Input::get('status');
+        $data['page'] = Input::get('page');
 
         $data['periods'] = $this->periods->getPeriodsByUser();
         $data['categories'] = $this->categories->getCategoriesByUser();

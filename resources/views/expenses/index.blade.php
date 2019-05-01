@@ -36,18 +36,18 @@
             <div>
                 <nav>
                     <ul class="">
-                        <li><a href="/expenses?department=1&status=all$&period=1&page=1">ALL</a></li>
-                        <li><a href="/expenses?department=1&status=3$&period=1&page=1">Pending</a></li>
-                        <li><a href="/expenses?department=1&status=2$&period=1&page=1">Denied</a></li>
-                        <li><a href="/expenses?department=1&status=1$&period=1&page=1">Approved</a></li>
-                        <li><a href="/expenses?department=1&status=4$&period=1&page=1">Closed</a></li>
+                        <li><a href="/expenses?department={{ $department }}&status=all&period={{ $period_id }}&page={{ $page }}">ALL</a></li>
+                        <li><a href="/expenses?department={{ $department }}&status=3&period={{ $period_id }}&page={{ $page }}">Pending</a></li>
+                        <li><a href="/expenses?department={{ $department }}&status=2&period={{ $period_id }}&page={{ $page }}">Denied</a></li>
+                        <li><a href="/expenses?department={{ $department }}&status=1&period={{ $period_id }}&page={{ $page }}">Approved</a></li>
+                        <li><a href="/expenses?department={{ $department }}&status=4&period={{ $period_id }}&page={{ $page }}">Closed</a></li>
                     </ul>
                 </nav>
             </div>
 
             <div class="dropdown" aria-label="selectDepartment">
-                <select id="selectDepartment" class="form-control" onchange="changeF(this.value)">
-                    <option value="">Choose department</option>
+                <select data-placeholder="Departments" id="selectDepartment" class="form-control" onchange="changeDepartment(this.value)">
+                    <option value="all">All departments</option>
                     @if(isset($categories))
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -55,29 +55,6 @@
                     @endif
                 </select>
             </div>
-{{--                <div>--}}
-{{--                    @foreach($categories as $category)--}}
-{{--                        --}}{{-- Add style for selected category.--}}
-{{--                        If category is selected by user,--}}
-{{--                        it has background-color from $colors array--}}
-{{--                        @php--}}
-{{--                            $active = $department == $category->id ? "true" : "false";--}}
-{{--                            $display = $department == $category->id ? "display:none" : "display:block";--}}
-{{--                            $style = $department == $category->id ? "background-color: $colors[$i]; color: white" : "border: 2px solid $colors[$i]; background-color: white; color: black";--}}
-{{--                        @endphp--}}
-{{--                        --}}{{-- When we click on department we go to the page where will display budgets for choosing department and period --}}
-{{--                        <a style="display: block" href="/budgets?department={{ $category->id }}&period={{ $period_id }}">--}}
-{{--                            <div style="{{ $style }}" class="cat-group-budget" datatype="{{ $active }}">--}}
-{{--                                <p>{{ $category->name }}</p>--}}
-{{--                                <p style="{{ $display }}">Expense total / Budget total</p>--}}
-{{--                                <p style="{{ $display }}">Spent</p>--}}
-{{--                            </div>--}}
-{{--                        </a>--}}
-{{--                        @php $i++ @endphp--}}
-{{--                        @php if($i == count($colors) - 1) { $i = 0; } @endphp--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--            @endif--}}
         </div>
         <div class="col-sm-9">
             <div class="expense-table">
@@ -170,6 +147,26 @@
                 </div>
             </div>
         </div>
-
     </div>
+@endsection
+
+@section('script')
+    <script>
+        {{-- If we choose period we get that url below with select department and period and status --}}
+        function changePeriod(id) {
+            let url = "/expenses?department={{ $department }}&status={{ $status }}&period="+id;
+
+            // currently open window will be on "url" location
+            window.location = url;
+        }
+    </script>
+
+    <script>
+        {{-- If we choose departemnt we get that url below with select department and period and status --}}
+        function changeDepartment(id) {
+            let url = "/expenses?department="+id+"&status={{ $status }}&period={{ $period_id }}";
+
+            window.location = url;
+        }
+    </script>
 @endsection
