@@ -29,16 +29,16 @@ class CommonProvider extends ServiceProvider
     {
         return [
             'blue' => 'blue',
-            'indigo',
-            'purple',
-            'darkRed',
-            'green',
-            'darkGreen',
+            'indigo' => 'indigo',
+            'purple' => 'purple',
+            'darkRed' => 'darkRed',
+            'green' => 'green',
+            'darkGreen' => 'darkGreen',
             'yellow' => 'yellow',
-            'orange',
-            'teal',
-            'cyan',
-            'lightBlack',
+            'orange' => 'orange',
+            'teal' => 'teal',
+            'cyan' => 'cyan',
+            'lightBlack' => 'lightBlack',
         ];
     }
 
@@ -53,6 +53,10 @@ class CommonProvider extends ServiceProvider
         return $value;
     }
 
+    /**
+     * @param $logo
+     * @return string
+     */
     public static function getImage($logo) : string
     {
         if($logo == null) {

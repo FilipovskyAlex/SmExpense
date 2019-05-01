@@ -36,6 +36,10 @@ class Expense extends Model
         'comment',
     ];
 
+    /**
+     * Fetch all needed data from expense to display
+     * @return array
+     */
     public function getAllExpenses()
     {
         return DB::select(DB::raw('
@@ -70,6 +74,10 @@ class Expense extends Model
         '));
     }
 
+    /**
+     * @param int $status
+     * @return string
+     */
     public static function getStatus(int $status) : string
     {
         switch ($status) {
