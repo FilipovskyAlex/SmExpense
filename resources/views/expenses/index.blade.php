@@ -97,11 +97,32 @@
                             @if(isset($expenses))
                                 @foreach($expenses as $expense)
                                     @if($expense->company_id == \Illuminate\Support\Facades\Auth::user()->company_id)
+
+                                        <?php
+                                            $color = "darkRed";
+                                            if ($expense->status == 1) {
+                                                $color = "green";
+                                                $textColor = "black";
+                                            }
+                                            if ($expense->status == 2) {
+                                                $color = "red";
+                                                $textColor = "black";
+                                            }
+                                            if ($expense->status == 3) {
+                                                $color = "#e6d442";
+                                                $textColor = "black";
+                                            }
+                                            if ($expense->status == 4) {
+                                                $color = "black";
+                                                $textColor = "white";
+                                            }
+                                        ?>
+
                                         <tr>
-                                            <td id="checkbox"><input type="checkbox" name="expenses[]" value=""></td>
+                                            <td id="checkbox" style="border-left: 3px solid {{ $color }}"><input type="checkbox" name="expenses[]" value=""></td>
                                             <td id="req">
                                                 <h5>
-                                                    <a href="#">
+                                                    <a href="{{ route('expenses.show', $expense->id) }}">
                                                         {{ $expense->subject }}
                                                     </a>
                                                     /
@@ -117,14 +138,17 @@
                                             </td>
                                             <td id="amount">
                                                 <p>{{ \App\Providers\CommonProvider::format_number($expense->budget)}}</p>
-                                                <a href="#"><span class="expense-overdue">{{ \App\Expense::getStatus($expense->status) }}</span></a>
+                                                <a href="#"><span class="expense-overdue" style="color: {{ $textColor }}; background-color: {{ $color }}">{{ \App\Expense::getStatus($expense->status) }}</span></a>
                                             </td>
                                             <td id="approve">
-                                                <p><img src="" alt="" width="25px"></p>
-                                                <p><img src="" alt="" width="25px"></p>
-                                                <p>{{ $expense->email }}</p>
+                                                @if($expense->approver == null && $expense->status==3)
+                                                    <p>Not approved yet.</p>
+                                                @else
+                                                    <p><img src="{{ \App\Providers\CommonProvider::getImage($expense->approver_logo) }}" alt="" width="45px" height="auto" style="padding-bottom: 5px;"></p>
+                                                    <p>{{ $expense->email }}</p>
+                                                @endif
                                             </td>
-                                            <td id="details">
+                                            <td id="details" style="border-right: 3px solid {{ $color }}">
                                                 <div class="details-expense">
                                                     <h5>{{ $expense->category }}</h5>
                                                     <p><span>&nbsp;{{ \App\Providers\CommonProvider::format_number($expense->price) }}</span>&nbsp;requested</p>

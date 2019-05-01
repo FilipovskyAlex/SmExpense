@@ -28,16 +28,17 @@ class CommonProvider extends ServiceProvider
     public static function colors() : array
     {
         return [
-            'blue',
+            'blue' => 'blue',
             'indigo',
             'purple',
             'darkRed',
             'green',
             'darkGreen',
-            'yellow',
+            'yellow' => 'yellow',
             'orange',
             'teal',
             'cyan',
+            'lightBlack',
         ];
     }
 
@@ -50,5 +51,16 @@ class CommonProvider extends ServiceProvider
         $value = number_format($value, 2);
         $value = '$'.$value;
         return $value;
+    }
+
+    public static function getImage($logo) : string
+    {
+        if($logo == null) {
+            $logo = asset('img/no_avatar.jpg');
+        } else {
+            $logo = asset("img/$logo");
+        }
+
+        return $logo;
     }
 }

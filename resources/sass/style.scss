@@ -1468,6 +1468,8 @@ div.container-fluid {
                         td#checkbox {
                             vertical-align: middle;
                             text-align: center;
+                            border: none;
+                            border: 1px solid $darkRed;
                         }
 
                         td#req {
@@ -1535,7 +1537,7 @@ div.container-fluid {
                                 span.expense-overdue {
                                     border-radius: 40px;
                                     font-weight: normal;
-                                    color: black;
+                                    //color: black;
                                     padding: 1px 8px;
                                 }
                             }

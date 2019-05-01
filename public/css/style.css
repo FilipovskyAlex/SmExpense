@@ -1251,6 +1251,8 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
 .row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#checkbox {
   vertical-align: middle;
   text-align: center;
+  border: none;
+  border: 1px solid #bc001b;
 }
 
 .row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#req {
@@ -1318,7 +1320,6 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
 .row.table-expenses .col-sm-9 .expense-table table.table tbody tr td#amount a span.expense-overdue {
   border-radius: 40px;
   font-weight: normal;
-  color: black;
   padding: 1px 8px;
 }
 
