@@ -19,7 +19,7 @@
         <div class="col-sm-3 chooseExp">
             <div class="dropdown" aria-label="selectExpense">
                 <select id="selectExpense" class="form-control" onchange="changePeriod(this.value)">
-                    <option>Choose expense period</option>
+                    <option value="all">Choose expense period</option>
                     @if(isset($periods))
                         @foreach($periods as $period)
                             <option value="{{ $period->id }}" <? if($period_id == $period->id) { echo "selected"; } ?>>{{ date('F d, Y', strtotime($period->from)). ' To '.date('F d, Y', strtotime($period->to)) }}</option>

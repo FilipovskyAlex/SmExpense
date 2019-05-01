@@ -28,17 +28,17 @@ class CommonProvider extends ServiceProvider
     public static function colors() : array
     {
         return [
-            'blue' => 'blue',
-            'indigo' => 'indigo',
-            'purple' => 'purple',
-            'darkRed' => 'darkRed',
-            'green' => 'green',
-            'darkGreen' => 'darkGreen',
-            'yellow' => 'yellow',
-            'orange' => 'orange',
-            'teal' => 'teal',
-            'cyan' => 'cyan',
-            'lightBlack' => 'lightBlack',
+            'blue',
+            'indigo',
+            'purple',
+            'darkRed',
+            'green',
+            'darkGreen',
+            'yellow',
+            'orange',
+            'teal',
+            'cyan',
+            'lightBlack',
         ];
     }
 

@@ -28,8 +28,8 @@
                                 If company is selected by user,
                                 it has border with white background-color --}}
                                 @php
-                                    $style = \Illuminate\Support\Facades\Auth::user()->company_id === $company->id
-                                    ? "border: 2px solid $colors[$i]; background-color: white; color: black"
+                                    $style = \Illuminate\Support\Facades\Auth::user()->company_id == $company->id
+                                    ? "border: 2px solid $colors[$i]; background-color: white; color: black;"
                                     : "background-color: $colors[$i]";
                                 @endphp
                                 <button style="{{ $style }}" class="btn comp-list-btn">{{ $company->name }}</button>

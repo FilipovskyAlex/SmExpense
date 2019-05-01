@@ -51,6 +51,17 @@ class Expense extends Model
         $status = "";
         $AND = "";
 
+        // User and manager can see only their self-created expenses for their categories and choosing companies
+        if(Auth::user()->role != 1) {
+            $AND = "
+                AND cat.id IN(
+                    SELECT ud.category_id
+                    FROM user_details as ud
+                    WHERE ud.user_id=".Auth::user()->id."
+                )
+            ";
+        }
+
         // Add query raw to common query if we choose particular department to display its budgets
         if(Input::get('department') && Input::get('department') != "all") {
             $department = "AND b.category_id=".Input::get('department')."";
@@ -99,6 +110,7 @@ class Expense extends Model
             $department
             $status
             $period
+            $AND
             ORDER BY e.created_at DESC
         "));
     }
