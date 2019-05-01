@@ -116,6 +116,46 @@ class Expense extends Model
     }
 
     /**
+     * Fetch single expense to display
+     * @param int $id
+     * @return array
+     */
+    public function getSingleExpense(int $id)
+    {
+        return DB::select(DB::raw("
+            SELECT
+            e.id,
+            e.outside as budget,
+            e.price,
+            e.comment,
+            e.description,
+            e.priority,
+            e.subject,
+            e.status,
+            e.created_at,
+            e.updated_at,
+            e.approver_id as approver,
+            e.company_id,
+            u.name as user,
+            u.logo as logo,
+            u.email,
+            b.item,
+            cat.name as category,
+            p.id as period,
+            app.name as approver_name,
+            app.logo as approver_logo
+            FROM expenses as e
+            LEFT JOIN companies as comp ON e.company_id = comp.id
+            LEFT JOIN budgets as b ON e.budget_id = b.id
+            LEFT JOIN categories as cat ON e.category_id = cat.id
+            LEFT JOIN users as u ON e.user_id = u.id
+            LEFT JOIN users as app ON e.approver_id = app.id
+            LEFT JOIN periods as p ON e.period_id = p.id
+            WHERE e.id=$id
+        "));
+    }
+
+    /**
      * @param int $status
      * @return string
      */
