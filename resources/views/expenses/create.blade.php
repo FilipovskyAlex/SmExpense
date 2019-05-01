@@ -104,7 +104,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row {{ $errors->has('file') ? ' is-invalid' : '' }}">
+                <div class="form-group row">
                     <label for="file" class="col-sm-4 col-form-label text-md-right">{{ __('Add file') }}</label>
 
                     <div class="col-sm-6">
@@ -112,7 +112,7 @@
                         <input type="file" value="{{ old('file') }}" class="form-control" name="file" id="file">
 
                         @if ($errors->has('file'))
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback" role="alert" style="display: block; margin-bottom: 10px;">
                                 <strong>{{ $errors->first('file') }}</strong>
                             </span>
                         @endif

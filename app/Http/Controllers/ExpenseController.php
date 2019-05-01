@@ -105,7 +105,7 @@ class ExpenseController extends Controller
 
         $expense->save();
 
-        return redirect()->back()->with('message', 'New expense is created');
+        return redirect()->route('expenses.index')->with('message', 'New expense is created');
     }
 
     public function edit()

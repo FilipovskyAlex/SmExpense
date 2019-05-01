@@ -28,6 +28,7 @@ class CreateExpenseRequest extends FormRequest
             'price' => 'required|integer',
             'subject' => 'required',
             'outside' => 'required|integer',
+            'file' => 'required',
         ];
     }
 }

@@ -1108,7 +1108,7 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
 }
 
 .row.add-new-exp-form .col-sm-7 form .form-group div input#file {
-  height: 100%;
+  height: auto;
 }
 
 .row.add-new-exp-form .col-sm-7 form .form-group div button.add-exp-btn {
