@@ -22,7 +22,7 @@
                     <option>Choose expense period</option>
                     @if(isset($periods))
                         @foreach($periods as $period)
-                            <option value="{{ $period->id }}">{{ date('F d, Y', strtotime($period->from)). ' To '.date('F d, Y', strtotime($period->to)) }}</option>
+                            <option value="{{ $period->id }}" <? if($period_id == $period->id) { echo "selected"; } ?>>{{ date('F d, Y', strtotime($period->from)). ' To '.date('F d, Y', strtotime($period->to)) }}</option>
                         @endforeach
                     @endif
                 </select>
@@ -36,11 +36,11 @@
             <div>
                 <nav>
                     <ul class="">
-                        <li><a href="/expenses?department={{ $department }}&status=all&period={{ $period_id }}&page={{ $page }}">ALL</a></li>
-                        <li><a href="/expenses?department={{ $department }}&status=3&period={{ $period_id }}&page={{ $page }}">Pending</a></li>
-                        <li><a href="/expenses?department={{ $department }}&status=2&period={{ $period_id }}&page={{ $page }}">Denied</a></li>
-                        <li><a href="/expenses?department={{ $department }}&status=1&period={{ $period_id }}&page={{ $page }}">Approved</a></li>
-                        <li><a href="/expenses?department={{ $department }}&status=4&period={{ $period_id }}&page={{ $page }}">Closed</a></li>
+                        <li <? if($status == "all") { echo "style=background-color:#F68991"; } ?>><a href="/expenses?department={{ $department }}&status=all&period={{ $period_id }}&page={{ $page }}">ALL</a></li>
+                        <li <? if($status == 3) { echo "style=background-color:#F68991"; } ?>><a href="/expenses?department={{ $department }}&status=3&period={{ $period_id }}&page={{ $page }}">Pending</a></li>
+                        <li <? if($status == 2) { echo "style=background-color:#F68991"; } ?>><a href="/expenses?department={{ $department }}&status=2&period={{ $period_id }}&page={{ $page }}">Denied</a></li>
+                        <li <? if($status == 1) { echo "style=background-color:#F68991"; } ?>><a href="/expenses?department={{ $department }}&status=1&period={{ $period_id }}&page={{ $page }}">Approved</a></li>
+                        <li <? if($status == 4) { echo "style=background-color:#F68991"; } ?>><a href="/expenses?department={{ $department }}&status=4&period={{ $period_id }}&page={{ $page }}">Closed</a></li>
                     </ul>
                 </nav>
             </div>
@@ -50,16 +50,17 @@
                     <option value="all">All departments</option>
                     @if(isset($categories))
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}" <? if($department == $category->id) { echo "selected"; } ?>>{{ $category->name }}</option>
                         @endforeach
                     @endif
                 </select>
             </div>
         </div>
         <div class="col-sm-9">
-            <div class="expense-table">
-                <table class="table table-hover">
-                    <thead>
+            @if(count($expenses) > 0)
+                <div class="expense-table">
+                    <table class="table table-hover">
+                        <thead>
                         <tr>
                             <th style="width: 3%"><input type="checkbox" class="checkALL" name="checkALL"></th>
                             <th id="request" style="width: 50%">Requset</th>
@@ -67,8 +68,8 @@
                             <th style="width: 13%">Approvers</th>
                             <th style="width: 14%">Details</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         <form action="" role="form" method="post">
                             @csrf
                             @if(isset($expenses))
@@ -76,23 +77,23 @@
                                     @if($expense->company_id == \Illuminate\Support\Facades\Auth::user()->company_id)
 
                                         <?php
-                                            $color = "darkRed";
-                                            if ($expense->status == 1) {
-                                                $color = "green";
-                                                $textColor = "black";
-                                            }
-                                            if ($expense->status == 2) {
-                                                $color = "red";
-                                                $textColor = "black";
-                                            }
-                                            if ($expense->status == 3) {
-                                                $color = "#e6d442";
-                                                $textColor = "black";
-                                            }
-                                            if ($expense->status == 4) {
-                                                $color = "black";
-                                                $textColor = "white";
-                                            }
+                                        $color = "darkRed";
+                                        if ($expense->status == 1) {
+                                            $color = "green";
+                                            $textColor = "black";
+                                        }
+                                        if ($expense->status == 2) {
+                                            $color = "red";
+                                            $textColor = "black";
+                                        }
+                                        if ($expense->status == 3) {
+                                            $color = "#e6d442";
+                                            $textColor = "black";
+                                        }
+                                        if ($expense->status == 4) {
+                                            $color = "black";
+                                            $textColor = "white";
+                                        }
                                         ?>
 
                                         <tr>
@@ -138,14 +139,17 @@
                                 @endforeach
                             @endif
                         </form>
-                    </tbody>
-                </table>
-                <div class="col-sm-8">
-                    <button type="button" class="btn btn-dark" onclick="closeExpenses()">Close</button>
-                    <button type="button" class="btn btn-danger" onclick="denyExpenses()">Deny</button>
-                    <button type="button" class="btn btn-success" onclick="approveExpenses()">Approve</button>
+                        </tbody>
+                    </table>
+                    <div class="col-sm-8">
+                        <button type="button" class="btn btn-dark" onclick="closeExpenses()">Close</button>
+                        <button type="button" class="btn btn-danger" onclick="denyExpenses()">Deny</button>
+                        <button type="button" class="btn btn-success" onclick="approveExpenses()">Approve</button>
+                    </div>
                 </div>
-            </div>
+            @else
+                <h4 align="center">No Item Found</h4>
+            @endif
         </div>
     </div>
 @endsection

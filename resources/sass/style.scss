@@ -1439,6 +1439,13 @@ div.container-fluid {
         padding: 0 0 0 60px;
         padding-left: 40px;
 
+        h4 {
+            color: $darkRed;
+            padding-top: 50px;
+            letter-spacing: 2px;
+            line-height: 30px;
+        }
+
         .expense-table {
             table.table {
                 border-bottom: 1px solid $darkRed;

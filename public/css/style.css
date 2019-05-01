@@ -1228,6 +1228,13 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   padding-left: 40px;
 }
 
+.row.table-expenses .col-sm-9 h4 {
+  color: #bc001b;
+  padding-top: 50px;
+  letter-spacing: 2px;
+  line-height: 30px;
+}
+
 .row.table-expenses .col-sm-9 .expense-table table.table {
   border-bottom: 1px solid #bc001b;
 }

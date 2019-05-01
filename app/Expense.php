@@ -3,7 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Class Expense
@@ -42,7 +44,29 @@ class Expense extends Model
      */
     public function getAllExpenses()
     {
-        return DB::select(DB::raw('
+        $company_id = Auth::user()->company_id;
+
+        $department = "";
+        $period = "";
+        $status = "";
+        $AND = "";
+
+        // Add query raw to common query if we choose particular department to display its budgets
+        if(Input::get('department') && Input::get('department') != "all") {
+            $department = "AND b.category_id=".Input::get('department')."";
+        }
+
+        // Add query raw to common query if we choose particular period to display its budgets
+        if(Input::get('status') && Input::get('status') != "all") {
+            $status = "AND e.status=".Input::get('status')."";
+        }
+
+        // Add query raw to common query if we choose particular period to display its budgets
+        if(Input::get('period') && Input::get('period') != "all") {
+            $period = "AND b.period_id=".Input::get('period')."";
+        }
+
+        return DB::select(DB::raw("
             SELECT
             e.id,
             e.outside as budget,
@@ -71,7 +95,12 @@ class Expense extends Model
             LEFT JOIN users as u ON e.user_id = u.id
             LEFT JOIN users as app ON e.approver_id = app.id
             LEFT JOIN periods as p ON e.period_id = p.id
-        '));
+            WHERE e.company_id=$company_id
+            $department
+            $status
+            $period
+            ORDER BY e.created_at DESC
+        "));
     }
 
     /**
