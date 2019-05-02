@@ -136,7 +136,7 @@ class ExpenseController extends Controller
         $expense = $this->expenses->getSingleExpense($id);
         $data['expense'] = $expense[0];
 
-        return view('expenses.showSingle', $expense);
+        return view('expenses.showSingle', $data);
     }
 
     public function delete()

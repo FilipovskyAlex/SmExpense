@@ -1596,3 +1596,125 @@ div.container-fluid {
         }
     }
 }
+
+// Show single expense
+
+.row.showSingleExp {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    .col-sm-10 {
+        padding: 10px 0 20px 60px ;
+
+        h1 {
+            text-align: left;
+            color: $pink;
+            letter-spacing: 0.5px;
+        }
+    }
+    .col-sm-2 {
+        padding-top: 22px;
+
+        a {
+            text-decoration: none;
+
+            button.show-exp {
+                background-color: $pink;
+                color: $white;
+            }
+
+            button.show-exp:hover {
+                background-color: #f68fad;
+            }
+        }
+    }
+}
+
+.row {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    .col-sm-10 {
+        padding: 10px 0 20px 60px ;
+
+        table.show-expense-table {
+            width: 800px;
+            margin: 0 auto;
+
+            tr {
+                th {
+                    background-color: $red;
+                    text-align: center;
+                    width: 400px;
+                    border: 2px solid $darkRed;
+                    color: $pink;
+                    font-size: 18px;
+                    font-weight: bolder;
+                    letter-spacing: 2px;
+                }
+
+                td {
+                    background-color: #e4e4e4;
+                    text-align: center;
+                    width: 400px;
+                    border: 2px solid $lightBlack;
+                    color: $pink;
+                    font-size: 18px;
+                    font-weight: bolder;
+                    letter-spacing: 2px;
+                }
+
+                td#status {
+                    background-color: #e4e4e4;
+                    text-align: center;
+                    width: 400px;
+                    border: 2px solid $lightBlack;
+                    color: $pink;
+                    font-size: 18px;
+                    font-weight: bolder;
+                    letter-spacing: 2px;
+
+                    span {
+                        float: left;
+                        border-radius: 30px;
+                        padding: 2px;
+                        margin: 5px 0 0 5px;
+                    }
+
+                    div {
+                        float: right;
+                        margin-top: 5px;
+
+                        select {
+                            float: left;
+                            margin-top: 5px;
+                            margin-right: 10px;
+                            border-radius: 5px;
+                            outline: none;
+                            margin-bottom: 5px;
+
+                            option {
+
+                            }
+                        }
+
+                        button {
+                            background-color: $pink;
+                            color: $white;
+                            border-radius: 5px;
+                            padding: 2px;
+                            margin: 0 5px 5px 0;
+                        }
+
+                        button:hover {
+                            background-color: #f68fad;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

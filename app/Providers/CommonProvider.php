@@ -62,7 +62,7 @@ class CommonProvider extends ServiceProvider
         if($logo == null) {
             $logo = asset('img/no_avatar.jpg');
         } else {
-            $logo = asset("img/$logo");
+            $logo = asset("uploads/$logo");
         }
 
         return $logo;

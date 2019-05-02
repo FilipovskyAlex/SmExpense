@@ -1369,3 +1369,118 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   background-color: #ff0074;
 }
 
+.row.showSingleExp {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.row.showSingleExp .col-sm-10 {
+  padding: 10px 0 20px 60px;
+}
+
+.row.showSingleExp .col-sm-10 h1 {
+  text-align: left;
+  color: #f62e75;
+  letter-spacing: 0.5px;
+}
+
+.row.showSingleExp .col-sm-2 {
+  padding-top: 22px;
+}
+
+.row.showSingleExp .col-sm-2 a {
+  text-decoration: none;
+}
+
+.row.showSingleExp .col-sm-2 a button.show-exp {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.row.showSingleExp .col-sm-2 a button.show-exp:hover {
+  background-color: #f68fad;
+}
+
+.row {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.row .col-sm-10 {
+  padding: 10px 0 20px 60px;
+}
+
+.row .col-sm-10 table.show-expense-table {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.row .col-sm-10 table.show-expense-table tr th {
+  background-color: #ffe6e3;
+  text-align: center;
+  width: 400px;
+  border: 2px solid #bc001b;
+  color: #f62e75;
+  font-size: 18px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.row .col-sm-10 table.show-expense-table tr td {
+  background-color: #e4e4e4;
+  text-align: center;
+  width: 400px;
+  border: 2px solid #2d2d2d;
+  color: #f62e75;
+  font-size: 18px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.row .col-sm-10 table.show-expense-table tr td#status {
+  background-color: #e4e4e4;
+  text-align: center;
+  width: 400px;
+  border: 2px solid #2d2d2d;
+  color: #f62e75;
+  font-size: 18px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.row .col-sm-10 table.show-expense-table tr td#status span {
+  float: left;
+  border-radius: 30px;
+  padding: 2px;
+  margin: 5px 0 0 5px;
+}
+
+.row .col-sm-10 table.show-expense-table tr td#status div {
+  float: right;
+  margin-top: 5px;
+}
+
+.row .col-sm-10 table.show-expense-table tr td#status div select {
+  float: left;
+  margin-top: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 5px;
+}
+
+.row .col-sm-10 table.show-expense-table tr td#status div button {
+  background-color: #f62e75;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 0 5px 5px 0;
+}
+
+.row .col-sm-10 table.show-expense-table tr td#status div button:hover {
+  background-color: #f68fad;
+  color: #ffffff;
+}
+

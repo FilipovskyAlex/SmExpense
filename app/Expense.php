@@ -136,6 +136,7 @@ class Expense extends Model
             e.updated_at,
             e.approver_id as approver,
             e.company_id,
+            e.file,
             u.name as user,
             u.logo as logo,
             u.email,
