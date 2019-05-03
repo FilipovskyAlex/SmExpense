@@ -170,4 +170,19 @@ class Expense extends Model
             default: return 'No such status'; break;
         }
     }
+
+    /**
+     * @param string $status
+     * @return int|string
+     */
+    public static function getStatusByString(string $status)
+    {
+        switch ($status) {
+            case 'approved': return 1; break;
+            case 'denied': return 2; break;
+            case 'pending': return 3; break;
+            case 'closed': return 4; break;
+            default: return 'No such status'; break;
+        }
+    }
 }

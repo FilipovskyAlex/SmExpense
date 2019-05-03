@@ -127,7 +127,7 @@
                 <tr id="comments_single_tr_id" style="display: none;">
                     <th>Comments: <span style="color: darkred">Required</span></th>
                     <td>
-                        <textarea name="" id="comment_single_{{ $expense->id }}" style="width: 100%;">{{ $expense->comment }}</textarea>
+                        <textarea id="comment_single_{{ $expense->id }}" style="width: 100%;">{{ $expense->comment }}</textarea>
                     </td>
                 </tr>
 
@@ -149,8 +149,25 @@
 
 @section('script')
     <script>
-        function changeStatus(id) {
+        function changeStatus(expenseId) {
+            // Comment Box text is always an empty string >> ????
+            let commentBox = $("comment_single_"+expenseId).text();
+            let status = $("#expense_status_"+expenseId).val();
 
+            if(status === "denied") {
+                if(commentBox == '' || commentBox == null) {
+                    $("#comments_single_tr_id").slideDown('slow');
+                }
+                if(commentBox != '' && commentBox != null) {
+                    $.post("/expenses/updateStatus", {status: status, comment: commentBox, id: expenseId, _token: '{!! csrf_token() !!}'}).done(function (data) {
+                        location.reload();
+                    })
+                }
+            } else {
+                $.post("/expenses/updateStatus", {status: status, comment: commentBox, id: expenseId, _token: '{!! csrf_token() !!}'}).done(function (data) {
+                    location.reload();
+                });
+            }
         }
     </script>
 @endsection
