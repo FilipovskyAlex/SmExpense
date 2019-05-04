@@ -121,7 +121,8 @@
                                                 <div style="clear: both; height: 5px">
                                                     <div style="display: none;" id="comments_box_{{ $expense->id }}">
                                                         <div style="float: left; margin-top: 8px;"><strong>Comments: </strong></div>
-                                                        <textarea class="validateCommentBox" name="comments[{{ $expense->id }}]" id="comments_{{ $expense->id }}" style="width: 300px; height: 42px; margin-left: 10px;"></textarea>
+                                                        {{-- There is shouldn't be any space btw textarea open and closed tags! Otherwise we cannot get accurate length of the new array of values --}}
+                                                        <textarea class="validateCommentBox" name="comments[{{ $expense->id }}]" id="comments_{{ $expense->id }}" style="width: 300px; height: 32px; margin-left: 10px; z-index: 9999"></textarea>
                                                     </div>
                                                 </div>
 
@@ -228,7 +229,48 @@
 
     <script>
         function denyExpenses() {
+            // Get count of checking fields
+            $(".expenses_checkbox").each(function () {
+                let checking = $(this).is(':checked');
+                let checkboxId = $(this).val();
 
+                if(checking === true) {
+                    window.scrollTo(0, 200);
+                    $("#comments_box_"+checkboxId).slideDown('slow');
+                } else {
+                    $("#comments_box_"+checkboxId).slideUp('slow');
+                    $("#com_warnings").hide();
+                }
+            });
+
+            let commentCounter = 0;
+
+            // Get count of checking fields
+            $(".expenses_checkbox").each(function () {
+                let checking = $(this).is(':checked');
+
+                if(checking === true) {
+                    commentCounter++;
+                }
+            });
+
+            // return a new array of values of filled "textareas"
+            let allTextareaFilled = $(".validateCommentBox").filter(function () {
+               return this.value;
+            });
+
+            // Text areas are not filled
+            if(allTextareaFilled.length === 0) {
+                $("#com_warnings").show().fadeOut(2500);
+            } else if(allTextareaFilled.length === commentCounter) { // Text areas are filled
+                let confirmation = confirm('Are you sure?');
+                $("#com_warnings").hide();
+
+                if(confirmation === true) {
+                    // The invisible button will trigger the form
+                    $("#deniedSubmitBtn").trigger('click');
+                }
+            }
         }
     </script>
 

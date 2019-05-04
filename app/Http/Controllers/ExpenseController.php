@@ -148,6 +148,7 @@ class ExpenseController extends Controller
 
     public function editStatus(Request $request)
     {
+
         $status = $request->status;
         $status = $this->expenses->getStatusByString($status);
 
@@ -155,6 +156,10 @@ class ExpenseController extends Controller
             $expense = Expense::find($row);
 
             $expense->status = $status;
+            // If expense already have a comment it will be not cleared from db
+            if($_POST['comments'][$row] != null) {
+                $expense->comment = $_POST['comments'][$row];
+            }
             $expense->approver_id = Auth::user()->id;
 
             $expense->save();
