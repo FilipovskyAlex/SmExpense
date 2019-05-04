@@ -300,4 +300,12 @@
             }
         }
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            $(".checkALL").on('click', function () {
+                $(".expenses_checkbox").attr("checked", true);
+            });
+        });
+    </script>
 @endsection
