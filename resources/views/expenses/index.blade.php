@@ -70,7 +70,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <form action="" role="form" method="post">
+                        <form action="/expenses/editStatus" role="form" method="post">
                             @csrf
                             @if(isset($expenses))
                                 @foreach($expenses as $expense)
@@ -97,7 +97,9 @@
                                         ?>
 
                                         <tr>
-                                            <td id="checkbox" style="border-left: 3px solid {{ $color }}"><input type="checkbox" name="expenses[]" value=""></td>
+                                            <td id="checkbox" style="border-left: 3px solid {{ $color }}">
+                                                <input class="expenses_checkbox" type="checkbox" name="expenses[]" value="{{ $expense->id }}">
+                                            </td>
                                             <td id="req">
                                                 <h5>
                                                     <a href="{{ route('expenses.show', $expense->id) }}">
@@ -112,7 +114,17 @@
                                                     </span>
                                                 </h5>
                                                 <p><span>User name:&nbsp; {{ $expense->user }}&nbsp;&nbsp;</span>Created at: <span>{{ date('F d, Y', strtotime($expense->created_at)) }}</span></p>
-                                                <p><strong>{{ $expense->comment }}</strong></p>
+                                                @if($expense->comment != null)
+                                                    <p><strong>Comment: </strong>{{ $expense->comment }}</p>
+                                                @endif
+
+                                                <div style="clear: both; height: 5px">
+                                                    <div style="display: none;" id="comments_box_{{ $expense->id }}">
+                                                        <div style="float: left; margin-top: 8px;"><strong>Comments: </strong></div>
+                                                        <textarea class="validateCommentBox" name="comments[{{ $expense->id }}]" id="comments_{{ $expense->id }}" style="width: 300px; height: 42px; margin-left: 10px;"></textarea>
+                                                    </div>
+                                                </div>
+
                                             </td>
                                             <td id="amount">
                                                 <p>{{ \App\Providers\CommonProvider::format_number($expense->budget)}}</p>
@@ -138,14 +150,27 @@
                                     @endif
                                 @endforeach
                             @endif
-                        </form>
+
                         </tbody>
                     </table>
-                    <div class="col-sm-8">
-                        <button type="button" class="btn btn-dark" onclick="closeExpenses()">Close</button>
-                        <button type="button" class="btn btn-danger" onclick="denyExpenses()">Deny</button>
-                        <button type="button" class="btn btn-success" onclick="approveExpenses()">Approve</button>
-                    </div>
+                    @if(\Illuminate\Support\Facades\Auth::user()->id != 3)
+                        <div class="col-sm-8">
+
+                            <div style="display: none; margin-bottom: 10px; color: darkred;" id="com_warnings">Please fill comment box these are required</div>
+                            <div style="display: none; font-size: 20px; margin-bottom: 10px; margin-top: 10px; color: red;" id="acom_warnings">Please, select the request first</div>
+
+                            <button id="deniedSubmitBtn" name="status" type="submit" value="denied" class="btn btn-danger" style="visibility: hidden;">Deny</button>
+                            <button id="closedSubmitBtn" name="status" type="submit" value="closed" class="btn btn-dark" style="visibility: hidden;">Closed</button>
+                            <button id="approvedSubmitBtn" name="status" type="submit" value="approved" class="btn btn-success" style="visibility: hidden;">Approved</button>
+
+
+                            <button type="button" class="btn btn-dark" onclick="closeExpenses()">Close</button>
+                            <button type="button" class="btn btn-danger" onclick="denyExpenses()">Deny</button>
+                            <button type="button" class="btn btn-success" onclick="approveExpenses()">Approve</button>
+                        </div>
+                    @endif
+                            {{-- CLosing form there because of buttons above --}}
+                            </form>
                 </div>
             @else
                 <h4 align="center">No Item Found</h4>
@@ -171,6 +196,66 @@
             let url = "/expenses?department="+id+"&status={{ $status }}&period={{ $period_id }}";
 
             window.location = url;
+        }
+    </script>
+
+    <script>
+        function closeExpenses() {
+            let commentCounter = 0;
+
+            // Get count of checking fields
+            $(".expenses_checkbox").each(function () {
+               let checking = $(this).is(':checked');
+
+               if(checking === true) {
+                   commentCounter++;
+               }
+            });
+
+            if(commentCounter > 0) {
+                // return true or false
+                let confirmation = confirm('Are you sure?');
+
+                if(confirmation === true) {
+                    // The invisible button will trigger the form
+                    $("#closedSubmitBtn").trigger('click');
+                }
+            } else {
+                $("#acom_warnings").show().fadeOut(2500);
+            }
+        }
+    </script>
+
+    <script>
+        function denyExpenses() {
+
+        }
+    </script>
+
+    <script>
+        function approveExpenses() {
+            let commentCounter = 0;
+
+            // Get count of checking fields
+            $(".expenses_checkbox").each(function () {
+                let checking = $(this).is(':checked');
+
+                if(checking === true) {
+                    commentCounter++;
+                }
+            });
+
+            if(commentCounter > 0) {
+                // return true or false
+                let confirmation = confirm('Are you sure?');
+
+                if(confirmation === true) {
+                    // The invisible button will trigger the form
+                    $("#approvedSubmitBtn").trigger('click');
+                }
+            } else {
+                $("#acom_warnings").show().fadeOut(2500);
+            }
         }
     </script>
 @endsection

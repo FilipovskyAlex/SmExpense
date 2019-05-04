@@ -146,6 +146,23 @@ class ExpenseController extends Controller
         $expense->save();
     }
 
+    public function editStatus(Request $request)
+    {
+        $status = $request->status;
+        $status = $this->expenses->getStatusByString($status);
+
+        foreach ($request->expenses as $row) {
+            $expense = Expense::find($row);
+
+            $expense->status = $status;
+            $expense->approver_id = Auth::user()->id;
+
+            $expense->save();
+        }
+
+        return redirect()->back()->with('message', 'Changes saved!');
+    }
+
     public function show(int $id)
     {
         $expense = $this->expenses->getSingleExpense($id);

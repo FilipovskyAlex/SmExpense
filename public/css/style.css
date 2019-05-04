@@ -1354,7 +1354,7 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
 }
 
 .row.table-expenses .col-sm-9 .expense-table .col-sm-8 {
-  padding-top: 20px;
+  padding-top: 0;
   float: right;
 }
 
