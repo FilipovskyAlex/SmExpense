@@ -55,6 +55,7 @@ class Expense extends Model
         $department = Input::get('department');
         $period = Input::get('period');
         $status = Input::get('status');
+        $search = Input::get('search');
 
         $table = DB::table('expenses as e');
 
@@ -111,9 +112,24 @@ class Expense extends Model
             $table = $table->where('b.period_id', $period);
         }
 
+        // Create search conditions
+        if($search) {
+            $table = $table->where('e.id', 'like', $search);
+            $table = $table->orWhere('u.name', 'like', '%'.$search.'%');
+            $table = $table->orWhere('u.email', 'like', '%'.$search.'%');
+            $table = $table->orWhere('e.subject', 'like', '%'.$search.'%');
+            $table = $table->orWhere('b.item', 'like', '%'.$search.'%');
+            $table = $table->orWhere('e.price', 'like', '%'.$search.'%');
+            $table = $table->orWhere('cat.name', 'like', '%'.$search.'%');
+            $table = $table->orWhere('e.status', 'like', '%'.$search.'%');
+            $table = $table->orWhere('e.outside', 'like', '%'.$search.'%');
+            $table = $table->orWhere('e.created_at', 'like', '%'.$search.'%');
+            $table = $table->orWhere('e.priority', 'like', '%'.$search.'%');
+            $table = $table->orWhere('app.name', 'like', '%'.$search.'%');
+        }
+
         $table = $table->orderBy('created_at', 'DESC');
         $table = $table->paginate(2);
-//        $table = $table->get();
 
         return $table;
     }

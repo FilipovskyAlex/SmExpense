@@ -31,8 +31,10 @@
                 <a class="nav-link" href="{{ route('users.index') }}">Users <i class="fas fa-users" style="padding-left: 3px;"></i></a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" action="{{ route('expenses.search') }}" method="post" role="search">
+            @csrf
+            <input type="hidden" name="company_id" value="{{ \Illuminate\Support\Facades\Auth::user()->company_id }}">
+            <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search">
             <button class="button-search-style btn my-2 my-sm-0" type="submit">Search</button>
         </form>
         <div class="nav-item dropdown">

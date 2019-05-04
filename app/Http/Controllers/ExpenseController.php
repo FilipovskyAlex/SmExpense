@@ -178,4 +178,11 @@ class ExpenseController extends Controller
     {
 
     }
+
+    public function search(Request $request)
+    {
+        $data = $request->all();
+
+        return redirect('/expenses/?department=all&status=all&period=all&search='.$data['search']);
+    }
 }
