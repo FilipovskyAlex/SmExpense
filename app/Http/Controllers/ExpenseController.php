@@ -38,10 +38,6 @@ class ExpenseController extends Controller
             return redirect()->route('companies.index')->with('error', 'Please select / create your company first');
         }
 
-//        if(Auth::user()->role == 3) {
-//            return redirect()->route('home')->with('error', 'Access denied, you do not have sufficient privilege');
-//        }
-
         // If we not choose particular department and period, then redirect to default query
         if(Input::get('department') == false || Input::get('period') == false || Input::get('status') == false) {
             return redirect('/expenses?department=all&status=all&period=all');
@@ -58,6 +54,8 @@ class ExpenseController extends Controller
         $data['categories'] = $this->categories->getCategoriesByUser();
         $data['colors'] = $this->colors;
         $data['expenses'] = $this->expenses->getAllExpenses();
+        // Display in pagination format
+        $data['expenses'] = $data['expenses']->appends(Input::except('page'));
 
         return view('expenses.index', $data);
     }

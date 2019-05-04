@@ -1353,19 +1353,37 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   font-weight: bolder;
 }
 
-.row.table-expenses .col-sm-9 .expense-table .col-sm-8 {
+.row.table-expenses .col-sm-9 .expense-table .row .col-sm-4 ul.pagination {
+  margin-bottom: 0;
+}
+
+.row.table-expenses .col-sm-9 .expense-table .row .col-sm-4 ul.pagination li.page-item span.page-link {
+  background-color: #ffe6e3;
+  border: 1px solid #ffe6e3;
+  color: #bc001b;
+}
+
+.row.table-expenses .col-sm-9 .expense-table .row .col-sm-4 ul.pagination li.page-item a.page-link {
+  color: #bc001b;
+}
+
+.row.table-expenses .col-sm-9 .expense-table .row .col-sm-4 ul.pagination li.page-item.active {
+  color: #ffe6e3;
+}
+
+.row.table-expenses .col-sm-9 .expense-table .row .col-sm-8 {
   padding-top: 0;
   float: right;
 }
 
-.row.table-expenses .col-sm-9 .expense-table .col-sm-8 button {
+.row.table-expenses .col-sm-9 .expense-table .row .col-sm-8 button {
   border: none;
   float: right;
   outline: none;
   margin-left: 15px;
 }
 
-.row.table-expenses .col-sm-9 .expense-table .col-sm-8 button:hover {
+.row.table-expenses .col-sm-9 .expense-table .row .col-sm-8 button:hover {
   background-color: #ff0074;
 }
 

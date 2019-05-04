@@ -1577,20 +1577,48 @@ div.container-fluid {
                     }
                 }
             }
+            .row {
+                .col-sm-4 {
+                    ul.pagination {
+                        margin-bottom: 0;
 
-            .col-sm-8 {
-                padding-top: 0;
-                float: right;
+                        li.page-item {
 
-                button {
-                    border: none;
-                    float: right;
-                    outline: none;
-                    margin-left: 15px;
+                            span.page-link {
+                                background-color: $red;
+                                border: 1px solid $red;
+                                color: $darkRed;
+                            }
+
+                            a.page-link {
+                                color: $darkRed;
+                            }
+                        }
+
+                        li.page-item.active {
+                            color: $red;
+
+                            span.page-link {
+
+                            }
+                        }
+                    }
                 }
 
-                button:hover {
-                    background-color: #ff0074;
+                .col-sm-8 {
+                    padding-top: 0;
+                    float: right;
+
+                    button {
+                        border: none;
+                        float: right;
+                        outline: none;
+                        margin-left: 15px;
+                    }
+
+                    button:hover {
+                        background-color: #ff0074;
+                    }
                 }
             }
         }

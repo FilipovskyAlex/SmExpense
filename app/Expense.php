@@ -38,81 +38,84 @@ class Expense extends Model
         'comment',
     ];
 
-    /**
-     * Fetch all needed data from expense to display
-     * @return array
-     */
+    public function user_details()
+    {
+        $table = DB::table('user_details');
+
+        $table = $table->where('user_id', Auth::user()->id);
+
+        return $table;
+    }
+
+
     public function getAllExpenses()
     {
         $company_id = Auth::user()->company_id;
 
-        $department = "";
-        $period = "";
-        $status = "";
-        $AND = "";
+        $department = Input::get('department');
+        $period = Input::get('period');
+        $status = Input::get('status');
+
+        $table = DB::table('expenses as e');
+
+        $table = $table->select(
+            'e.id',
+            'e.price',
+            'e.outside as budget',
+            'e.priority',
+            'e.status',
+            'e.subject',
+            'e.description',
+            'e.comment',
+            'e.approver_id as approver',
+            'e.company_id',
+            'e.created_at',
+            'e.updated_at',
+            'e.file',
+            'u.name as user',
+            'u.logo as logo',
+            'u.email',
+            'b.item',
+            'cat.name as category',
+            'p.id as period',
+            'app.name as approver_name',
+            'app.logo as approver_logo'
+        );
+
+        $table = $table->leftJoin('companies as comp','comp.id', '=', 'e.company_id');
+        $table = $table->leftJoin('budgets as b','b.id', '=', 'e.budget_id');
+        $table = $table->leftJoin('categories as cat','cat.id', '=', 'e.category_id');
+        $table = $table->leftJoin('users as u','u.id', '=', 'e.user_id');
+        $table = $table->leftJoin('users as app','app.id', '=', 'e.approver_id');
+        $table = $table->leftJoin('periods as p','p.id', '=', 'e.period_id');
+
+        $table = $table->where('e.company_id', '=', $company_id);
 
         // User and manager can see only their self-created expenses for their categories and choosing companies
         if(Auth::user()->role != 1) {
-            $AND = "
-                AND cat.id IN(
-                    SELECT ud.category_id
-                    FROM user_details as ud
-                    WHERE ud.user_id=".Auth::user()->id."
-                )
-            ";
+            $table = $table->whereIn('e.category_id', $this->user_details());
         }
 
         // Add query raw to common query if we choose particular department to display its budgets
-        if(Input::get('department') && Input::get('department') != "all") {
-            $department = "AND b.category_id=".Input::get('department')."";
+        if($department && $department != "all") {
+            $table = $table->where('b.category_id', $department);
         }
 
         // Add query raw to common query if we choose particular period to display its budgets
-        if(Input::get('status') && Input::get('status') != "all") {
-            $status = "AND e.status=".Input::get('status')."";
+        if($status && $status != "all") {
+            $table = $table->where('e.status', $status);
         }
 
         // Add query raw to common query if we choose particular period to display its budgets
-        if(Input::get('period') && Input::get('period') != "all") {
-            $period = "AND b.period_id=".Input::get('period')."";
+        if($period && $period != "all") {
+            $table = $table->where('b.period_id', $period);
         }
 
-        return DB::select(DB::raw("
-            SELECT
-            e.id,
-            e.outside as budget,
-            e.price,
-            e.comment,
-            e.description,
-            e.priority,
-            e.subject,
-            e.status,
-            e.created_at,
-            e.updated_at,
-            e.approver_id as approver,
-            e.company_id,
-            u.name as user,
-            u.logo as logo,
-            u.email,
-            b.item,
-            cat.name as category,
-            p.id as period,
-            app.name as approver_name,
-            app.logo as approver_logo
-            FROM expenses as e
-            LEFT JOIN companies as comp ON e.company_id = comp.id
-            LEFT JOIN budgets as b ON e.budget_id = b.id
-            LEFT JOIN categories as cat ON e.category_id = cat.id
-            LEFT JOIN users as u ON e.user_id = u.id
-            LEFT JOIN users as app ON e.approver_id = app.id
-            LEFT JOIN periods as p ON e.period_id = p.id
-            WHERE e.company_id=$company_id
-            $department
-            $status
-            $period
-            $AND
-            ORDER BY e.created_at DESC
-        "));
+        $table = $table->orderBy('created_at', 'DESC');
+        $table = $table->paginate(2);
+//        $table = $table->get();
+
+        return $table;
     }
 
     /**

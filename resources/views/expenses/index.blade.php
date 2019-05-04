@@ -154,22 +154,28 @@
 
                         </tbody>
                     </table>
-                    @if(\Illuminate\Support\Facades\Auth::user()->id != 3)
-                        <div class="col-sm-8">
+                    <div class="row">
+                        {{-- Pagination --}}
+                        <div class="col-sm-4">{!! $expenses->links() !!}</div>
 
-                            <div style="display: none; margin-bottom: 10px; color: darkred;" id="com_warnings">Please fill comment box these are required</div>
-                            <div style="display: none; font-size: 20px; margin-bottom: 10px; margin-top: 10px; color: red;" id="acom_warnings">Please, select the request first</div>
+                        @if(\Illuminate\Support\Facades\Auth::user()->id != 3)
+                            <div class="col-sm-8">
 
-                            <button id="deniedSubmitBtn" name="status" type="submit" value="denied" class="btn btn-danger" style="visibility: hidden;">Deny</button>
-                            <button id="closedSubmitBtn" name="status" type="submit" value="closed" class="btn btn-dark" style="visibility: hidden;">Closed</button>
-                            <button id="approvedSubmitBtn" name="status" type="submit" value="approved" class="btn btn-success" style="visibility: hidden;">Approved</button>
+                                <div style="display: none; margin-bottom: 10px; color: darkred;" id="com_warnings">Please fill comment box these are required</div>
+                                <div style="display: none; font-size: 20px; margin-bottom: 10px; margin-top: 10px; color: red;" id="acom_warnings">Please, select the request first</div>
+
+                                <button id="deniedSubmitBtn" name="status" type="submit" value="denied" class="btn btn-danger" style="visibility: hidden;">Deny</button>
+                                <button id="closedSubmitBtn" name="status" type="submit" value="closed" class="btn btn-dark" style="visibility: hidden;">Closed</button>
+                                <button id="approvedSubmitBtn" name="status" type="submit" value="approved" class="btn btn-success" style="visibility: hidden;">Approved</button>
 
 
-                            <button type="button" class="btn btn-dark" onclick="closeExpenses()">Close</button>
-                            <button type="button" class="btn btn-danger" onclick="denyExpenses()">Deny</button>
-                            <button type="button" class="btn btn-success" onclick="approveExpenses()">Approve</button>
-                        </div>
-                    @endif
+                                <button type="button" class="btn btn-dark" onclick="closeExpenses()">Close</button>
+                                <button type="button" class="btn btn-danger" onclick="denyExpenses()">Deny</button>
+                                <button type="button" class="btn btn-success" onclick="approveExpenses()">Approve</button>
+                            </div>
+                        @endif
+                    </div>
+
                             {{-- CLosing form there because of buttons above --}}
                             </form>
                 </div>
