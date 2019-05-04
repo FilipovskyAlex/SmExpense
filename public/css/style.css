@@ -1014,28 +1014,32 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   border: 1px solid #bc001b;
 }
 
-.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total {
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .row .col-sm-6 {
   border-bottom: 1px solid #bc001b;
   float: right;
   padding-bottom: 7px;
 }
 
-.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total span {
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .row .col-sm-6 span.total {
   color: #bc001b;
   letter-spacing: normal;
+  font-weight: bold;
+  font-size: 24px;
+  position: relative;
+  top: 15px;
 }
 
-.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total .col-sm-5.list {
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .row .col-sm-6.list {
   padding-left: 0;
 }
 
-.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total .col-sm-5.list p {
-  width: 350px;
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .row .col-sm-6.list p {
+  width: auto;
   margin-bottom: 0;
-  text-align: left;
+  text-align: right;
 }
 
-.row.table-budgets .col-sm-9 .col-sm-12.total-price .col-sm-5.total .col-sm-5.list p span {
+.row.table-budgets .col-sm-9 .col-sm-12.total-price .row .col-sm-6.list p span {
   float: right;
   color: #f62e75;
   font-weight: bolder;

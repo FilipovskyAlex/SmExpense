@@ -58,16 +58,22 @@ class Budget extends Model
 
         // CASE: we send as outside param the diff btw budget and summary prices of all expenses that belongs to this budget
         return DB::select(DB::raw("
-            SELECT b.id, b.company_id, b.category_id, b.period_id, b.item, b.unit, b.quantity, b.budget, b.created_at, u.name as name, cat.name as category, b.budget as outside
-            
+            SELECT b.id, b.company_id, b.category_id, b.period_id, b.budget, b.item, b.unit, b.quantity, b.created_at, u.name as name, cat.name as category,
+            CASE 
+            WHEN b.budget - SUM(e.price)>0
+            THEN b.budget - SUM(e.price)
+            ELSE b.budget
+            END as outside
             FROM budgets as b
             LEFT JOIN users as u ON b.user_id=u.id
             LEFT JOIN categories as cat ON b.category_id=cat.id
             LEFT JOIN companies as c ON b.company_id=c.id
+            LEFT JOIN expenses as e ON e.budget_id=b.id
             WHERE b.company_id=$company_id
             $department
             $period
             $AND
+            GROUP BY b.id
             ORDER BY b.id DESC
         "));
     }

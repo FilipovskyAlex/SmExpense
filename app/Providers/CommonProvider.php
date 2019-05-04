@@ -46,7 +46,7 @@ class CommonProvider extends ServiceProvider
      * @param int $value
      * @return int|string
      */
-    public static function format_number(int $value)
+    public static function format_number(int $value = null)
     {
         $value = number_format($value, 2);
         $value = '$'.$value;

@@ -94,9 +94,9 @@
             </div>
             @if(count($budgets) > 0)
                 <div class="col-sm-12 total-price">
-                    <div class="col-sm-5 total">
-                        <span>Budget information</span>
-                        <div class="col-sm-5 list">
+                    <div class="row">
+                        <div class="col-sm-6"><span class="total">Budget information</span></div>
+                        <div class="col-sm-6 list">
                             <p>Total budget &nbsp:&nbsp<span>{{ \App\Providers\CommonProvider::format_number(100) }}</span></p>
                             <p>Spent from budget &nbsp:&nbsp<span>{{ \App\Providers\CommonProvider::format_number(34343) }}</span></p>
                             <p>Remaining budget &nbsp:&nbsp<span>{{ \App\Providers\CommonProvider::format_number(5555555) }}</span></p>

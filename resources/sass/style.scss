@@ -1214,23 +1214,29 @@ div.container-fluid {
         }
 
         .col-sm-12.total-price {
-            .col-sm-5.total {
-                border-bottom: 1px solid $darkRed;
-                float: right;
-                padding-bottom: 7px;
+            .row {
+                .col-sm-6 {
+                    border-bottom: 1px solid $darkRed;
+                    float: right;
+                    padding-bottom: 7px;
 
-                span {
-                    color: $darkRed;
-                    letter-spacing: normal;
+                    span.total {
+                        color: $darkRed;
+                        letter-spacing: normal;
+                        font-weight: bold;
+                        font-size: 24px;
+                        position: relative;
+                        top: 15px;
+                    }
                 }
 
-                .col-sm-5.list {
+                .col-sm-6.list {
                     padding-left: 0;
 
                     p {
-                        width: 350px;
+                        width: auto;
                         margin-bottom: 0;
-                        text-align: left;
+                        text-align: right;
 
                         span {
                             float: right;
