@@ -77,4 +77,25 @@ class Budget extends Model
             ORDER BY b.id DESC
         "));
     }
+
+    /**
+     * Fetch total budget and spend budget by all expenses
+     * @return array
+     */
+    public function getTotalBudget()
+    {
+        $company_id = Auth::user()->company_id;
+
+        return DB::select(DB::raw("
+            SELECT  SUM(b.budget) as totalBudgets
+            FROM budgets as b
+            WHERE b.company_id=$company_id
+
+            UNION
+
+            SELECT SUM(price) as spendBudgets 
+            FROM expenses
+            WHERE company_id=$company_id
+        "));
+    }
 }

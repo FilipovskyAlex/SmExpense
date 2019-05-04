@@ -12,7 +12,7 @@
                 @if(isset($categories))
                     @foreach($categories as $category)
                         <tr>
-                            <td style="width: 80%">{{ $category->name }} (3)</td>
+                            <td style="width: 80%">{{ $category->name }} ({{ $category->budgets }})</td>
                             <td style="width: 10%"><a href="{{ route('category.edit', $category->id) }}"><i class="fa fa-edit"></i></a></td>
                             <td style="width: 10%"><a href="{{ route('category.delete', $category->id) }}"><i class="fa fa-trash"></i></a></td>
                         </tr>

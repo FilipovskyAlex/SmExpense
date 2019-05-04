@@ -39,10 +39,12 @@ class Category extends Model
         }
 
         return DB::select(DB::raw("
-            SELECT c.id, c.name, c.company_id, c.created_at, c.updated_at
+            SELECT c.id, c.name, c.company_id, c.created_at, c.updated_at, COUNT(b.category_id) as budgets
             FROM categories AS c
-            WHERE company_id=$company_id 
+            LEFT JOIN budgets as b ON b.category_id=c.id
+            WHERE c.company_id=$company_id
             $AND
+            GROUP BY c.id
             ORDER BY c.name ASC
         "));
     }

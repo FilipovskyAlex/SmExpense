@@ -97,9 +97,9 @@
                     <div class="row">
                         <div class="col-sm-6"><span class="total">Budget information</span></div>
                         <div class="col-sm-6 list">
-                            <p>Total budget &nbsp:&nbsp<span>{{ \App\Providers\CommonProvider::format_number(100) }}</span></p>
-                            <p>Spent from budget &nbsp:&nbsp<span>{{ \App\Providers\CommonProvider::format_number(34343) }}</span></p>
-                            <p>Remaining budget &nbsp:&nbsp<span>{{ \App\Providers\CommonProvider::format_number(5555555) }}</span></p>
+                            <p>Total budget &nbsp:&nbsp<span>{{ \App\Providers\CommonProvider::format_number($totalBudget->totalBudgets) }}</span></p>
+                            <p>Spent from budget &nbsp:&nbsp<span>{{ \App\Providers\CommonProvider::format_number($totalSpendBudget->totalBudgets) }}</span></p>
+                            <p>Remaining budget &nbsp:&nbsp<span>{{ \App\Providers\CommonProvider::format_number($totalBudget->totalBudgets - $totalSpendBudget->totalBudgets) }}</span></p>
                         </div>
                     </div>
                 </div>
