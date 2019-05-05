@@ -43,6 +43,7 @@ class Expense extends Model
         $table = DB::table('user_details');
 
         $table = $table->where('user_id', Auth::user()->id);
+        $table = $table->where('company_id', Auth::user()->company_id);
 
         return $table;
     }
@@ -93,9 +94,9 @@ class Expense extends Model
         $table = $table->where('e.company_id', '=', $company_id);
 
         // User and manager can see only their self-created expenses for their categories and choosing companies
-        if(Auth::user()->role != 1) {
-            $table = $table->whereIn('e.category_id', $this->user_details());
-        }
+//        if(Auth::user()->role != 1) {
+//            $table = $table->whereIn('e.category_id', $this->user_details());
+//        }
 
         // Add query raw to common query if we choose particular department to display its budgets
         if($department && $department != "all") {
@@ -128,6 +129,7 @@ class Expense extends Model
             $table = $table->orWhere('app.name', 'like', '%'.$search.'%');
         }
 
+//        $table = $table->groupBy('e.id');
         $table = $table->orderBy('created_at', 'DESC');
         $table = $table->paginate(2);
 

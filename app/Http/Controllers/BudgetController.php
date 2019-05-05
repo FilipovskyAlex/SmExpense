@@ -60,7 +60,9 @@ class BudgetController extends Controller
         // 1 index belongs to total spent budget in current active company
         $data['total'] = $this->budgets->getTotalBudget();
         $data['totalBudget'] = $data['total'][0];
-        $data['totalSpendBudget'] = $data['total'][1];
+        if(isset($data['total'][1])) {
+            $data['totalSpendBudget'] = $data['total'][1];
+        }
 
         return view('budgets.index', $data);
     }

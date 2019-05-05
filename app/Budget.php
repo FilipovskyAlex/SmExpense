@@ -86,16 +86,30 @@ class Budget extends Model
     {
         $company_id = Auth::user()->company_id;
 
+        $AND = '';
+
+        if(Auth::user()->id != 1) {
+            $AND = "
+                AND category_id IN(
+                    SELECT ud.category_id
+                    FROM user_details as ud
+                    WHERE ud.user_id=".Auth::user()->id."
+                )
+            ";
+        }
+
         return DB::select(DB::raw("
             SELECT  SUM(b.budget) as totalBudgets
             FROM budgets as b
             WHERE b.company_id=$company_id
+            $AND
 
             UNION
 
             SELECT SUM(price) as spendBudgets 
             FROM expenses
             WHERE company_id=$company_id
+            $AND
         "));
     }
 }

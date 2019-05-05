@@ -53,8 +53,8 @@
                         <a style="display: block" href="/budgets?department={{ $category->id }}&period={{ $period_id }}">
                             <div style="{{ $style }}" class="cat-group-budget" datatype="{{ $active }}">
                                 <p>{{ $category->name }}</p>
-                                <p style="{{ $display }}">Expense total / Budget total</p>
-                                <p style="{{ $display }}">Spent</p>
+                                <p style="{{ $display }}"><span>Total expense</span>&nbsp;{{ \App\Providers\CommonProvider::format_number($category->expenseTotal) }} / <span>Total budget</span>&nbsp;{{ \App\Providers\CommonProvider::format_number($category->budgetTotal) }}</p>
+                                <p style="{{ $display }}"><span>Left:&nbsp;</span>{{ \App\Providers\CommonProvider::format_number($category->budgetTotal - $category->expenseTotal) }}</p>
                             </div>
                         </a>
                         @php $i++ @endphp
