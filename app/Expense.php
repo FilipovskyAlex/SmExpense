@@ -206,4 +206,18 @@ class Expense extends Model
             default: return 'No such status'; break;
         }
     }
+
+    public function dashboardData(int $user_id, int $company_id, int $status)
+    {
+        $table = DB::table('expenses');
+
+        $table = $table->select('*');
+        $table = $table->where('user_id', $user_id);
+        $table = $table->where('company_id', $company_id);
+        $table = $table->where('status', $status);
+
+        $result = $table->count();
+
+        return $result;
+    }
 }
