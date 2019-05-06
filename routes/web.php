@@ -130,3 +130,15 @@ Route::prefix('expenses')->group(function () {
     Route::post('/search', 'ExpenseController@search')->name('expenses.search');
 
 });
+
+/*
+Profile
+*/
+
+Route::prefix('profile')->group(function () {
+
+    Route::get('/', 'ProfileController@index')->name('profile.index');
+    Route::post('/edit/{id}', 'ProfileController@edit')->name('profile.edit');
+    Route::post('/update/{id}', 'ProfileController@update')->name('profile.update');
+
+});

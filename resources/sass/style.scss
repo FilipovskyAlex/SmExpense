@@ -1784,3 +1784,99 @@ div.container-fluid {
         }
     }
 }
+
+// Profile
+
+.row.profile {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    .col-sm-9 {
+        padding: 10px 0 20px 60px ;
+
+        h2 {
+            text-align: left;
+            color: $pink;
+            letter-spacing: 0.5px;
+        }
+    }
+    .col-sm-3 {
+        padding-top: 22px;
+        padding-left: 50px;
+
+        a {
+            text-decoration: none;
+
+            button.profile-btn {
+                background-color: $pink;
+                color: $white;
+            }
+
+            button.profile-btn:hover {
+                background-color: #f68fad;
+            }
+        }
+    }
+}
+
+.row.justify-content-center.edit-profile {
+    .col-sm-8 {
+        .card {
+            border: 1px solid $pink;
+
+            .card-header {
+                background-color: $white;
+                font-size: 24px;
+                border: none;
+                color: #f62e75;
+                padding-top: 15px;
+                padding-bottom: 0;
+                text-align: center;
+                font-weight: bolder;
+                letter-spacing: 2px;
+            }
+
+            .card-body {
+                form {
+                    .form-group {
+                        label {
+                            color: #f62e75;
+                            font-size: 16px;
+                        }
+
+                        div {
+                            input, select {
+                                border: none;
+                                outline: none;
+                                border: 0.5px solid #f62e75;
+                            }
+
+                            input#logo {
+                                height: 45px;
+                                padding-bottom: 10px;
+                            }
+
+                            button.profile-btn {
+                                background-color: $pink;
+                                color: $white;
+                            }
+                            button.profile-btn:hover {
+                                background-color: #f68fad;
+                            }
+
+                            p {
+                                text-align: center;
+                                padding-bottom: 10px;
+
+                                img {
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1530,3 +1530,84 @@ div.container-fluid .row div.col-sm-12 footer.footer ul.footer-list li span {
   font-weight: bolder;
 }
 
+.row.profile {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.row.profile .col-sm-9 {
+  padding: 10px 0 20px 60px;
+}
+
+.row.profile .col-sm-9 h2 {
+  text-align: left;
+  color: #f62e75;
+  letter-spacing: 0.5px;
+}
+
+.row.profile .col-sm-3 {
+  padding-top: 22px;
+  padding-left: 50px;
+}
+
+.row.profile .col-sm-3 a {
+  text-decoration: none;
+}
+
+.row.profile .col-sm-3 a button.profile-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.row.profile .col-sm-3 a button.profile-btn:hover {
+  background-color: #f68fad;
+}
+
+.row.justify-content-center.edit-profile .col-sm-8 .card {
+  border: 1px solid #f62e75;
+}
+
+.row.justify-content-center.edit-profile .col-sm-8 .card .card-header {
+  background-color: #ffffff;
+  font-size: 24px;
+  border: none;
+  color: #f62e75;
+  padding-top: 15px;
+  padding-bottom: 0;
+  text-align: center;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.row.justify-content-center.edit-profile .col-sm-8 .card .card-body form .form-group label {
+  color: #f62e75;
+  font-size: 16px;
+}
+
+.row.justify-content-center.edit-profile .col-sm-8 .card .card-body form .form-group div input,
+.row.justify-content-center.edit-profile .col-sm-8 .card .card-body form .form-group div select {
+  border: none;
+  outline: none;
+  border: 0.5px solid #f62e75;
+}
+
+.row.justify-content-center.edit-profile .col-sm-8 .card .card-body form .form-group div input#logo {
+  height: 45px;
+  padding-bottom: 10px;
+}
+
+.row.justify-content-center.edit-profile .col-sm-8 .card .card-body form .form-group div button.profile-btn {
+  background-color: #f62e75;
+  color: #ffffff;
+}
+
+.row.justify-content-center.edit-profile .col-sm-8 .card .card-body form .form-group div button.profile-btn:hover {
+  background-color: #f68fad;
+}
+
+.row.justify-content-center.edit-profile .col-sm-8 .card .card-body form .form-group div p {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
