@@ -6,6 +6,7 @@ use App\Http\Requests\EditProfileRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class ProfileController
@@ -62,8 +63,19 @@ class ProfileController extends Controller
         return redirect()->back()->with('message', 'You have successfully updated your profile!');
     }
 
-    public function  update(Request $request, int $id)
+    public function update(Request $request, int $id)
     {
+        $user = Auth::user();
+        $editUser = User::findOrFail($id);
 
+        $this->validate($request, [
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $editUser->password = Hash::make($request->password);
+
+        $editUser->save();
+
+        return redirect()->back()->with('message', 'You password has been updated!');
     }
 }
